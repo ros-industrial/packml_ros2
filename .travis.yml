@@ -18,6 +18,7 @@ env:
     - ROS_DISTRO="dashing"
     - DOCKER_IMAGE='osrf/ros:dashing-desktop'
 
+install:
   - git clone --depth=1 -b master https://github.com/ros-industrial/industrial_ci.git .ci_config
 
 script:
