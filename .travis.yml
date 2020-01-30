@@ -10,7 +10,7 @@ cache:
 git:
   quiet: true
 
-jobs:
+env:
   global:
     - CCACHE_DIR=$HOME/.ccache
     - ROS_REPO=ros
@@ -18,11 +18,6 @@ jobs:
     - ROS_DISTRO="dashing"
     - DOCKER_IMAGE='osrf/ros:dashing-desktop'
 
-before_install:
-  - pip3 install opcua
-  - pip3 install socketserver
-
-install:
   - git clone --depth=1 -b master https://github.com/ros-industrial/industrial_ci.git .ci_config
 
 script:
