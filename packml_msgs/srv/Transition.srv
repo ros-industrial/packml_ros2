@@ -1,0 +1,37 @@
+# Request a state change from a packml state machine.  The command set is based
+# on the PackML summarized here:
+# http://www.plcopen.org/pages/promotion/publications/downloads/mapping_omac_statediagram.pdf
+# The response is returned as soon as the request is accepted, but not necessarily
+# when the state changes
+#
+# Enumeration values are based upon tag guidelines, here:
+# http://sesam-world.com/_pdf/make2pack/mode/2010-11-29/Materiale/PackML_Tag_Naming_Guidelines_V2.0.pdf
+
+
+# Values defined in tag naming guidelines
+int8 UNDEFINED = 0
+int8 CLEAR = 1        # Assumed to be "Prepare" in tag naming guidelines
+int8 START = 2
+int8 STOP = 3
+int8 HOLD = 4
+int8 ABORT = 5
+int8 RESET = 6        # Assumed to be "Home"
+int8 ESTOP = 7        # Not clear what state this drives or how it's different from an abort
+
+
+# Values NOT defined in tag naming guidelines
+int8 SUSPEND = 100
+int8 UNSUSPEND = 101
+int8 UNHOLD = 102
+
+int8 command
+---
+# State machine response
+bool success         # True if command has been accepted
+
+int8 SUCCESS = 1
+int8 INVALID_TRANSITION_REQUEST = -1
+int8 UNRECGONIZED_REQUEST = -2
+int8 error_code       # Error code if command has been rejected
+
+string message        # Message for display (only for human reading)

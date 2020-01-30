@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>packml_ros</name>
+  <version>0.0.0</version>
+  <description>ROS wrapper around packml state machine</description>
+  <maintainer email="dejanira_araiza@artc.a-star.edu.sg">Dejanira Araiza-Illan</maintainer>
+  <license>Apache 2.0</license>
+  <author>Shaun Edwards</author>
+  <author>Dejanira Araiza-Illan (ROS 2 compatibility)</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_depend>packml_msgs</build_depend>
+  <build_depend>packml_sm</build_depend>
+  <build_depend>Qt5</build_depend>
+
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>packml_msgs</exec_depend>
+  <exec_depend>packml_sm</exec_depend>
+  <exec_depend>Qt5</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
