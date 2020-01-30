@@ -1,5 +1,5 @@
-sudo: required
 language: generic
+os: linux
 services:
   - docker
 
@@ -10,7 +10,7 @@ cache:
 git:
   quiet: true
 
-env:
+jobs:
   global:
     - CCACHE_DIR=$HOME/.ccache
     - ROS_REPO=ros
