@@ -19,7 +19,7 @@ env:
     - DOCKER_IMAGE='osrf/ros:dashing-desktop'
 
 before_install:
-  - sudo apt-get -y ros-dashing-rqt-gui-cpp
+  - sudo apt-get install -y ros-dashing-rqt-gui-cpp
   - pip3 install opcua
   - pip3 install socketserver
 
