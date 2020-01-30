@@ -19,7 +19,6 @@ jobs:
     - DOCKER_IMAGE='osrf/ros:dashing-desktop'
 
 before_install:
-  - sudo apt install ros-dashing-rqt*
   - pip3 install opcua
   - pip3 install socketserver
 
