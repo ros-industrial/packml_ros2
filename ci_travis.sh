@@ -7,6 +7,7 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo -E
 sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 sudo apt-get update
 sudo apt install ros-$ROS_DISTRO-desktop
+sudo apt install python3-colcon-common-extensions
 source /opt/ros/$ROS_DISTRO/setup.bash
 cd /home/packml_ws
 colcon build
