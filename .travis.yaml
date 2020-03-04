@@ -1,0 +1,26 @@
+sudo: required
+dist: xenial
+services:
+- docker
+language: cpp
+cache: ccache
+compiler: gcc
+
+notifications:
+  email:
+    recipients:
+
+env:
+  global:
+    #- CI_TRAVIS_TIMEOUT=85 # CHANGED VARIABLE NAMES
+    - ROS_DISTRO=dashing
+    - ROS_REPO=ros
+    #- UPSTREAM_WORKSPACE=packml_ros2.repos #WHAT IS THIS
+    $- CXXFLAGS="-Wall -Wextra -Wwrite-strings -Wunreachable-code -Wpointer-arith -Wredundant-decls"
+    $- WARNINGS_OK=false
+  matrix:
+    - ROS_DISTRO=dashing
+    - ROS_REPO=ros
+
+script:
+  - . ci_travis.sh
