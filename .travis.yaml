@@ -1,16 +1,2 @@
 language: cpp
 
-sudo: required
-
-dist: xenial
-
-env:
-  global:
-    - ROS_DISTRO=dashing
-    - ROS_REPO=ros
-  matrix:
-    - ROS_DISTRO=dashing
-    - ROS_REPO=ros
-
-#script:
-#  - . ci_travis.sh
