@@ -10,4 +10,4 @@ sudo apt install ros-$ROS_DISTRO-desktop
 sudo apt install python3-colcon-common-extensions
 source /opt/ros/$ROS_DISTRO/setup.bash
 cd /home/packml_ws
-colcon build
+#colcon build
