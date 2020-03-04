@@ -1,0 +1,17 @@
+language: cpp
+
+dist: xenial
+
+git:
+  quiet: true
+
+env:
+  global:
+    - CCACHE_DIR=$HOME/.ccache
+    - ROS_REPO=ros
+    - ROS_DISTRO=dashing
+  matrix:
+    - ROS_DISTRO=dashing
+
+script:
+  - ci_travis.sh
