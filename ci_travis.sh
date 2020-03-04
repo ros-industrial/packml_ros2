@@ -11,4 +11,4 @@ sudo apt install python3-colcon-common-extensions
 cd /home/packml_ws
 source /opt/ros/$ROS_DISTRO/setup.bash
 export PYTHONPATH=/opt/ros/$ROS_DISTRO/lib/python3.6/site-packages
-colcon build
+sudo colcon build
