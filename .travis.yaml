@@ -1,10 +1,10 @@
+language: cpp
 sudo: required
 dist: xenial
-services:
-- docker
-language: cpp
-cache: ccache
-compiler: gcc
+compiler: 
+  - gcc
+os:
+  - linux
 
 notifications:
   email:
@@ -16,8 +16,8 @@ env:
     - ROS_DISTRO=dashing
     - ROS_REPO=ros
     #- UPSTREAM_WORKSPACE=packml_ros2.repos #WHAT IS THIS
-    $- CXXFLAGS="-Wall -Wextra -Wwrite-strings -Wunreachable-code -Wpointer-arith -Wredundant-decls"
-    $- WARNINGS_OK=false
+    #- CXXFLAGS="-Wall -Wextra -Wwrite-strings -Wunreachable-code -Wpointer-arith -Wredundant-decls"
+    #- WARNINGS_OK=false
   matrix:
     - ROS_DISTRO=dashing
     - ROS_REPO=ros
