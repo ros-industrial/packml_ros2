@@ -8,6 +8,7 @@ sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `ls
 sudo apt-get update
 sudo apt install ros-$ROS_DISTRO-desktop
 sudo apt install python3-colcon-common-extensions
-source /opt/ros/$ROS_DISTRO/setup.bash
 cd /home/packml_ws
-sudo colcon build
+source /opt/ros/$ROS_DISTRO/setup.bash
+export PYTHONPATH=/opt/ros/$ROS_DISTRO/lib/python3.6/site-packages
+colcon build
