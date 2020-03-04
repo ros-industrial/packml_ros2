@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mkdir -p /home/packml_ws/src
-cp -r packml_ros2 /home/packml_ws/src
+cp -r /home/packml_ros2 /home/packml_ws/src
 cd /home/packml_ws/
 apt update && apt install curl gnupg2 lsb-release
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -

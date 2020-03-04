@@ -3,7 +3,7 @@ language: generic
 os:
   - linux
 
-sudo: required
+sudo: true
 
 dist: xenial
 
