@@ -3,8 +3,6 @@ language: generic
 os:
   - linux
 
-sudo: true
-
 dist: xenial
 
 compiler:
@@ -15,9 +13,8 @@ env:
   global:
     - ROS_REPO=ros
     - ROS_DISTRO=dashing
-  matrix:
-    - ROS_REPO=ros
-    - ROS_DISTRO=dashing
+  jobs:
+    - 
 
 script:
   - . ci_travis.sh
