@@ -3,7 +3,7 @@ language: generic
 os:
   - linux
 
-dist: xenial
+dist: bionic
 
 compiler:
   - gcc
