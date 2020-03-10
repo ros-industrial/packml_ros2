@@ -1,4 +1,4 @@
-#!bin/env bash
+#!usr/bin/env bash
 # -*- indent-tabs-mode: nil -*-
 
 export ROS_CI_DIR=$(dirname ${BASH_SOURCE:-$0}) #path to directory running the current script
