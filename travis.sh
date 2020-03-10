@@ -39,7 +39,7 @@ function run_docker() {
 
     travis_run docker pull $DOCKER_IMAGE
 
-    $IN_DOCKER=true
+     export IN_DOCKER="true"
     
     # Start Docker container
     docker run \
@@ -285,7 +285,7 @@ function test_workspace() {
 #test -z "$TEST_PKG" && touch ${MOVEIT_CI_DIR}/test_pkgs/COLCON_IGNORE # not a unit test build
 
 # Re-run the script in a Docker container
-if ! [ "$IN_DOCKER" ]; then run_docker; fi
+if [-z "$IN_DOCKER" ]; then run_docker; fi
 
 # If we are here, we can assume we are inside a Docker container
 echo "Inside Docker container"
