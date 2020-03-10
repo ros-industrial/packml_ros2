@@ -16,6 +16,8 @@ env:
   jobs:
     - SCRIPT=travis.sh
 
+before_script:
+  - ln -s . .packml_ros2
 
 script:
-  - . $SCRIPT
+  - . .packml_ros2/$SCRIPT

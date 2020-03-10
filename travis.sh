@@ -1,4 +1,4 @@
-#!usr/bin/env bash
+#!bin/env bash
 # -*- indent-tabs-mode: nil -*-
 
 export ROS_CI_DIR=$(dirname ${BASH_SOURCE:-$0}) #path to directory running the current script
@@ -62,7 +62,7 @@ function run_docker() {
         -v $HOME/.ccache:/root/.ccache \
         -t \
         -w /root/$REPOSITORY_NAME \
-        $DOCKER_IMAGE /root/$REPOSITORY_NAME/travis.sh
+        $DOCKER_IMAGE /root/$REPOSITORY_NAME/.packml_ros2/travis.sh
     result=$?
 
     echo
