@@ -16,8 +16,6 @@ env:
   jobs:
     - SCRIPT=travis.sh
 
-before_script:
-  - ln -s . .ci #pretend to have the location .ci
 
 script:
-  - .ci/$SCRIPT
+  - .$SCRIPT
