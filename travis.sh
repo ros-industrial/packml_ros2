@@ -38,6 +38,8 @@ function run_docker() {
     echo -e $(colorize BOLD "Starting Docker image: $DOCKER_IMAGE")
 
     travis_run docker pull $DOCKER_IMAGE
+
+    $IN_DOCKER=true
     
     # Start Docker container
     docker run \
