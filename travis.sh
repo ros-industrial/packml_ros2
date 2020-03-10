@@ -31,7 +31,7 @@ function run_docker() {
 
     # Choose the docker container to use
     case "${ROS_REPO:-ros}" in
-       ros) export DOCKER_IMAGE=:ros/$ROS_DISTRO-ros-base-bionic ;;
+       ros) export DOCKER_IMAGE=ros:$ROS_DISTRO-ros-base-bionic ;;
        *) echo -e $(colorize RED "Unsupported ROS_REPO=$ROS_REPO. Use 'ros'"); exit 1 ;;
     esac
 
