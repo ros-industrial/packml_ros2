@@ -8,7 +8,7 @@ export ROS_WS=${ROS_WS:-/root/ros_ws} #location of workspace
 ROS_CI_TRAVIS_TIMEOUT=${ROS_CI_TRAVIS_TIMEOUT:-47} #50 minutes minus safety margin
 
 #Loading helper functions
-#source ${ROS_CI_DIR}/util.sh
+source ${ROS_CI_DIR}/util.sh
 
 #Colcon output handling
 COLCON_EVENT_HANDLING="--event-handlers desktop_notification- status-"
