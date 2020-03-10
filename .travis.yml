@@ -17,6 +17,7 @@ env:
     - SCRIPT=travis.sh
 
 before_script:
+  - ln -s . .ci #pretend to have the location .ci
 
 script:
-  - ${SCRIPT}
+  - .ci/$SCRIPT
