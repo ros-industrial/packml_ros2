@@ -27,7 +27,7 @@ function update_system() {
    # Install wstool and wget
    travis_run apt-get -qq install -y python-wstool wget
 
-   # Install Googletest
+   # Install Googletest #TODO this is personalized to packml_ros2
    travis_run apt-get -qq install libgtest-dev
    travis_run_simple cd /usr/src/googletest/googletest
    travis_run_simple mkdir build
@@ -45,7 +45,7 @@ function update_system() {
    travis_run_simple make install
    travis_run_simple cp libgmock* /usr/lib/
 
-   # Install other dependencies for this package
+   # Install other dependencies for this package #TODO this is personalized to packml_ros2
    travis_run apt -qq install -y python-opcua python-opcua-tools # OPCUA
    travis_run apt-get -qq install -y build-essential qt5-default libfontconfig1 mesa-common-dev
 
