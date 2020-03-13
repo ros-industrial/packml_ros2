@@ -62,7 +62,7 @@ function run_docker() {
         -v $HOME/.ccache:/root/.ccache \
         -t \
         -w /root/$REPOSITORY_NAME \
-        $DOCKER_IMAGE /root/$REPOSITORY_NAME/.ci_ros2/travis_2.sh #TODO name can be changed, to match name in .yaml file
+        $DOCKER_IMAGE /root/$REPOSITORY_NAME/.ci_ros2/travis_2.sh
     result=$?
 
     echo

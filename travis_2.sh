@@ -154,7 +154,7 @@ function prepare_ros_workspace() {
    #fi
 
    # run BEFORE_SCRIPT, which might modify the workspace further
-   run_script BEFORE_SCRIPT
+   #run_script BEFORE_SCRIPT
 
    # For debugging: list the files in workspace's source folder
    travis_run_simple cd $ROS_WS/src
@@ -198,8 +198,8 @@ function test_workspace() {
    travis_run_simple --title "Sourcing newly built install space" source install/setup.bash
 
    # Consider TEST_BLACKLIST
-   TEST_BLACKLIST=$(unify_list " ,;" $TEST_BLACKLIST)
-   echo -e $(colorize YELLOW Test blacklist: $(colorize THIN $TEST_BLACKLIST))
+   #TEST_BLACKLIST=$(unify_list " ,;" $TEST_BLACKLIST)
+   #echo -e $(colorize YELLOW Test blacklist: $(colorize THIN $TEST_BLACKLIST))
 
    # Also blacklist external packages
    all_pkgs=$(colcon list --topological-order --names-only --base-paths $ROS_WS 2> /dev/null)
@@ -207,17 +207,18 @@ function test_workspace() {
    blacklist_pkgs=$(filter_out "$source_pkgs" "$all_pkgs")
 
    # Run tests, suppressing the error output (confuses Travis display?)
-   travis_run_wait --title "colcon test" "colcon test --packages-skip $TEST_BLACKLIST $blacklist $COLCON_EVENT_HANDLING --merge-install 2>/dev/null"
+   #travis_run_wait --title "colcon test" "colcon test --packages-skip $TEST_BLACKLIST $blacklist $COLCON_EVENT_HANDLING --merge-install 2>/dev/null"
+   travis_run_wait ros2 run packml_sm packml_sm_utest #./run_tests.sh
 
    # Show failed tests
-   travis_fold start test.results "colcon test-results"
-   for file in $(colcon test-result | grep "\.xml:" | cut -d ":" -f1); do
-      travis_run --display "Test log of $file" cat $file
-   done
-   travis_fold end test.results
+   #travis_fold start test.results "colcon test-results"
+   #for file in $(colcon test-result | grep "\.xml:" | cut -d ":" -f1); do
+   #   travis_run --display "Test log of $file" cat $file
+   #done
+   #travis_fold end test.results
 
    # Show test results summary and throw error if necessary
-   colcon test-result || exit 2
+   #colcon test-result || exit 2
 }
 
 ###########################################################################################################
@@ -251,7 +252,7 @@ prepare_ros_workspace
 prepare_or_run_early_tests
 
 build_workspace
-#test_workspace
+test_workspace
 
 
 # Run all remaining tests

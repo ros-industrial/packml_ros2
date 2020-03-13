@@ -17,7 +17,7 @@ env:
     - SCRIPT=travis.sh
 
 before_script:
-  - ln -s . .ci_ros2 #TODO This name can be changed but needs to match inside travis.sh
+  - ln -s . .ci_ros2
 
 script:
-  - . .ci_ros2/$SCRIPT #TODO This name can be changed but needs to match inside travis.sh
+  - . .ci_ros2/$SCRIPT
