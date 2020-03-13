@@ -255,7 +255,7 @@ TEST(Packml_sm, testing_failed_state_transition_executions)
   bool answer12 = sm.unhold();
   ASSERT_TRUE(answer12 == false);
   bool answer13 = sm.clear();
-  ASSERT_TRUE(answer13 == false);
+  ASSERT_FALSE(answer13 == false);
 }
 
 TEST(Packml_sm, testing_init_function)
