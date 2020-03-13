@@ -30,7 +30,7 @@ import time
 import rclpy 
 from rclpy.node import Node
 import unittest
-from mock import MagicMock, Mock
+from unittest.mock import MagicMock, Mock
 from packml_msgs.srv import AllStatus
 import socket
 

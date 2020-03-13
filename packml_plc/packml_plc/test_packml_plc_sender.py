@@ -29,7 +29,7 @@ import time
 import rclpy 
 from rclpy.node import Node
 import unittest
-from mock import MagicMock, Mock
+from unittest.mock import MagicMock, Mock
 
 class TestMethods(unittest.TestCase):
   def test_DriverSender(self):

@@ -25,7 +25,6 @@ travis_run_simple make install
 travis_run_simple cp libgmock* /usr/lib/
 
 # Install Python testing tools
-travis_run_simple pip3 install unittest
 travis_run_simple pip3 install mock
 
 # Install OPCUA
