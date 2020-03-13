@@ -22,7 +22,7 @@ function update_system() {
    travis_run apt-get -qq dist-upgrade
 
    # Make sure autoconf is installed and python3-lxml for the tests
-   travis_run apt-get -qq install -y autoconf python3-lxml
+   travis_run apt-get -qq install -y autoconf python3-lxml python-wstool
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
