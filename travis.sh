@@ -42,6 +42,7 @@ function run_docker() {
     # Start Docker container
     docker run \
         --network=host \
+        -e IN_DOCKER \
         -e TRAVIS \
         -e ROS_CI_TRAVIS_TIMEOUT=$(travis_timeout $ROS_CI_TRAVIS_TIMEOUT) \
         -e ROS_REPO \
@@ -62,7 +63,7 @@ function run_docker() {
         -v $HOME/.ccache:/root/.ccache \
         -t \
         -w /root/$REPOSITORY_NAME \
-        $DOCKER_IMAGE /root/$REPOSITORY_NAME/.packml_ros2/travis_2.sh
+        $DOCKER_IMAGE /root/$REPOSITORY_NAME/.packml_ros2/travis.sh
     result=$?
 
     echo
@@ -83,7 +84,7 @@ function update_system() {
    travis_run apt-get -qq dist-upgrade
 
    # Make sure autoconf is installed and python3-lxml for the tests
-   travis_run apt-get -qq install -y autoconf python3-lxml
+   travis_run apt-get -qq install -y autoconf python3-lxml python-wstool
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
@@ -286,33 +287,33 @@ function test_workspace() {
 if ! [ "$IN_DOCKER" ]; then run_docker; fi
 
 # If we are here, we can assume we are inside a Docker container
-#echo "Inside Docker container"
+echo "Inside Docker container"
 
 # Prepend current dir if path is not yet absolute
-#[[ "$ROS_CI_DIR" != /* ]] && ROS_CI_DIR=$PWD/$ROS_CI_DIR
-#if [[ "$CI_SOURCE_PATH" != /* ]] ; then
-#   # If CI_SOURCE_PATH is not yet absolute
-#   if [ -d "$PWD/$CI_SOURCE_PATH" ] ; then
-#      CI_SOURCE_PATH=$PWD/$CI_SOURCE_PATH  # prepend with current dir, if that's feasible
-#   else
-#      # otherwise assume the folder will be created in $ROS_WS/src
-#      CI_SOURCE_PATH=$ROS_WS/src/$CI_SOURCE_PATH
-#   fi
-#fi
+[[ "$ROS_CI_DIR" != /* ]] && ROS_CI_DIR=$PWD/$ROS_CI_DIR
+if [[ "$CI_SOURCE_PATH" != /* ]] ; then
+   # If CI_SOURCE_PATH is not yet absolute
+   if [ -d "$PWD/$CI_SOURCE_PATH" ] ; then
+      CI_SOURCE_PATH=$PWD/$CI_SOURCE_PATH  # prepend with current dir, if that's feasible
+   else
+      # otherwise assume the folder will be created in $ROS_WS/src
+      CI_SOURCE_PATH=$ROS_WS/src/$CI_SOURCE_PATH
+   fi
+fi
 
 # normalize WARNINGS_OK to 0/1. Originally we accept true, yes, or 1 to allow warnings.
-#test ${WARNINGS_OK:=true} == true -o "$WARNINGS_OK" == 1 -o "$WARNINGS_OK" == yes && WARNINGS_OK=1 || WARNINGS_OK=0
+test ${WARNINGS_OK:=true} == true -o "$WARNINGS_OK" == 1 -o "$WARNINGS_OK" == yes && WARNINGS_OK=1 || WARNINGS_OK=0
 
 # Define CC/CXX defaults and print compiler version info
-#travis_run --title "CXX compiler info" $CXX --version
+travis_run --title "CXX compiler info" $CXX --version
 
-#update_system
-#prepare_or_run_early_tests
-#run_xvfb
-#prepare_ros_workspace
-#prepare_or_run_early_tests
+update_system
+prepare_or_run_early_tests
+run_xvfb
+prepare_ros_workspace
+prepare_or_run_early_tests
 
-#build_workspace
+build_workspace
 #test_workspace
 
 
