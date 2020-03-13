@@ -208,17 +208,13 @@ function test_workspace() {
 
    # Run tests, suppressing the error output (confuses Travis display?)
    #travis_run_wait --title "colcon test" "colcon test --packages-skip $TEST_BLACKLIST $blacklist $COLCON_EVENT_HANDLING --merge-install 2>/dev/null"
+   travis_fold start test.results "Test results"
    travis_run_wait ros2 run packml_sm packml_sm_utest #./run_tests.sh
+   travis_run_wait ros2 run packml_ros packml_ros_utest
+   travis_run_wait ros2 run packml_plugin packml_plugin_utest
+   travis_fold end test.results
 
-   # Show failed tests
-   #travis_fold start test.results "colcon test-results"
-   #for file in $(colcon test-result | grep "\.xml:" | cut -d ":" -f1); do
-   #   travis_run --display "Test log of $file" cat $file
-   #done
-   #travis_fold end test.results
-
-   # Show test results summary and throw error if necessary
-   #colcon test-result || exit 2
+   # Create badge
 }
 
 ###########################################################################################################
