@@ -24,8 +24,20 @@ function update_system() {
    # Make sure autoconf is installed and python3-lxml for the tests
    travis_run apt-get -qq install -y autoconf python3-lxml 
 
-   # Install Googletest and wstool
-   travis_run apt-get -qq install -y googletest python-wstool
+   # Install wstool
+   travis_run apt-get -qq install -y python-wstool
+
+   # Install Googletest
+   travis_run apt-get -qq install libgtest-dev
+   travis_run_simple cd /usr/src/gtest
+   travis_run_simple cmake CMakeLists.txt
+   travis_run_simple make
+   travis_run_simple cp *.a /usr/lib
+   travis_run apt-get -qq install -y google-mock
+   travis_run_simple cd /usr/src/gmock
+   travis_run_simple cmake CMakeLists.txt
+   travis_run_simple make
+   travis_run_simple cp *.a /usr/lib
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
