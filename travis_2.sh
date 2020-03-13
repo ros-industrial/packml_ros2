@@ -47,10 +47,7 @@ function update_system() {
 
    # Install other dependencies for this package
    travis_run apt -qq install -y python-opcua python-opcua-tools # OPCUA
-   travis_run_simple wget http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run #Qt5
-   travis_run_simple chmod +x qt-opensource-linux-x64-5.7.0.run \
-     ./qt-opensource-linux-x64-5.7.0.run
-   travis_run apt-get -qq install -y build-essential libfontconfig1 mesa-common-dev
+   travis_run apt-get -qq install -y build-essential qt5-default libfontconfig1 mesa-common-dev
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
