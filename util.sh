@@ -89,7 +89,7 @@ travis_fold() {
   fi
 
   local action="$1"
-  local name="${2:-moveit_ci}"  # name defaults to moveit_ci
+  local name="${2:-ci_ros2}"  # name defaults to ci_ros2
   name="${name/ /.}"  # replace spaces with dots in name
   local message="$3"
   test -n "$message" && message="$(colorize BLUE BOLD $3)\\n"  # print message in bold blue by default
