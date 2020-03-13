@@ -1,6 +1,11 @@
 #!/bin/bash
 # -*- indent-tabs-mode: nil -*-
 
+export ROS_CI_DIR=$(dirname ${BASH_SOURCE:-$0}) #path to directory running the current script
+
+#Loading helper functions
+source ${ROS_CI_DIR}/util.sh
+
 # Install Googletest #TODO this is personalized to packml_ros2
 travis_run apt-get -qq install libgtest-dev
 travis_run_simple cd /usr/src/googletest/googletest
