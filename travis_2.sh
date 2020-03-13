@@ -38,7 +38,7 @@ function update_system() {
    travis_run_simple cd ..
    travis_run_simple rm -rf build
    travis_run apt-get -qq install -y google-mock
-   travis_run_simple cd /usr/src/gmock
+   travis_run_simple cd /usr/src/googletest/gmock
    travis_run_simple mkdir build
    travis_run_simple cd build
    travis_run_simple cmake ..
