@@ -74,9 +74,6 @@ install(TARGETS ${PROJECT_NAME}
 
 #install(DIRECTORY include)
 
-#ament_export_interfaces(${PROJECT_NAME} HAS_LIBRARY_TARGET)
-#ament_export_libraries(${PROJECT_NAME})
-
 pluginlib_export_plugin_description_file(rviz_common plugin_description.xml)
 
 if(BUILD_TESTING)
