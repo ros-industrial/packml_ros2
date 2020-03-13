@@ -37,8 +37,8 @@ function update_system() {
    travis_run_simple cp libgtest* /usr/lib/
    travis_run_simple cd ..
    travis_run_simple rm -rf build
-   travis_run apt-get -qq install -y libgmock-dev
-   travis_run_simple cd /usr/src/googletest/gmock
+   travis_run apt-get -qq install -y google-mock
+   travis_run_simple cd /usr/src/gmock
    travis_run_simple mkdir build
    travis_run_simple cd build
    travis_run_simple cmake ..
@@ -48,6 +48,13 @@ function update_system() {
    # Install other dependencies for this package
    travis_run apt -qq install python-opcua        # Library
    travis_run apt -qq install python-opcua-tools  # Command-line tools
+   travis_run_simple wget http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run
+   travis_run_simple chmod +x qt-opensource-linux-x64-5.7.0.run \
+     ./qt-opensource-linux-x64-5.7.0.run
+   travis_run apt-get -qq install build-essential
+   travis_run apt-get install libfontconfig1
+   travis_run apt-get install mesa-common-dev
+
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
