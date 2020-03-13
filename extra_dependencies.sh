@@ -24,7 +24,10 @@ travis_run_simple cmake ..
 travis_run_simple make install
 travis_run_simple cp libgmock* /usr/lib/
 
-# Install other dependencies for this package 
-travis_run apt -qq install -y python-opcua python-opcua-tools # OPCUA
+# Install OPCUA
+travis_run apt -qq install -y python-opcua python-opcua-tools
 travis_run apt-get -qq install -y build-essential qt5-default libfontconfig1 mesa-common-dev
 
+# Install coverage tools
+travis_run_simple pip3 install coverage
+travis_run apt-get -qq install -y lcov
