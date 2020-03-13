@@ -24,8 +24,8 @@ function update_system() {
    # Make sure autoconf is installed and python3-lxml for the tests
    travis_run apt-get -qq install -y autoconf python3-lxml
 
-   # Install wstool
-   travis_run apt-get -qq install -y python-wstool
+   # Install wstool and wget
+   travis_run apt-get -qq install -y python-wstool wget
 
    # Install Googletest
    travis_run apt-get -qq install libgtest-dev
