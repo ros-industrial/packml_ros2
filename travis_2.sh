@@ -27,27 +27,8 @@ function update_system() {
    # Install wstool and wget
    travis_run apt-get -qq install -y python-wstool wget
 
-   # Install Googletest #TODO this is personalized to packml_ros2
-   travis_run apt-get -qq install libgtest-dev
-   travis_run_simple cd /usr/src/googletest/googletest
-   travis_run_simple mkdir build
-   travis_run_simple cd build
-   travis_run_simple cmake ..
-   travis_run_simple make install
-   travis_run_simple cp libgtest* /usr/lib/
-   travis_run_simple cd ..
-   travis_run_simple rm -rf build
-   travis_run apt-get -qq install -y google-mock
-   travis_run_simple cd /usr/src/googletest/googlemock
-   travis_run_simple mkdir build
-   travis_run_simple cd build
-   travis_run_simple cmake ..
-   travis_run_simple make install
-   travis_run_simple cp libgmock* /usr/lib/
-
-   # Install other dependencies for this package #TODO this is personalized to packml_ros2
-   travis_run apt -qq install -y python-opcua python-opcua-tools # OPCUA
-   travis_run apt-get -qq install -y build-essential qt5-default libfontconfig1 mesa-common-dev
+   # Install extra dependencies for particular package to compile
+   ./extra_dependencies.sh
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
