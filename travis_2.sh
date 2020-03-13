@@ -28,7 +28,8 @@ function update_system() {
    travis_run apt-get -qq install -y python-wstool wget
 
    # Install extra dependencies for particular package to compile
-   ./extra_dependencies.sh
+   echo -e $(colorize BLUE Installing custom dependencies for this package)
+   travis_run ./extra_dependencies.sh
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
