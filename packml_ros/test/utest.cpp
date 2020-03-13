@@ -376,7 +376,7 @@ TEST(Packml_ros, test_statusRequest_commands_101)
   EXPECT_TRUE(check1 == true);
 }
 
-/*TEST(Packml_ros, test_statusRequest_commands_102)
+TEST(Packml_ros, test_statusRequest_commands_102)
 {
   auto node = rclcpp::Node::make_shared("packml_ros_node");
   auto status_client_ = node->create_client<packml_msgs::srv::AllStatus>("allStatus");
@@ -392,7 +392,7 @@ TEST(Packml_ros, test_statusRequest_commands_101)
     check1 = false;
   }
   EXPECT_TRUE(check1 == true);
-}*/
+}
 
 TEST(Packml_ros, test_statusRequest_commands_103)
 {
