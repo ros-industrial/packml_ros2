@@ -22,22 +22,32 @@ function update_system() {
    travis_run apt-get -qq dist-upgrade
 
    # Make sure autoconf is installed and python3-lxml for the tests
-   travis_run apt-get -qq install -y autoconf python3-lxml 
+   travis_run apt-get -qq install -y autoconf python3-lxml
 
    # Install wstool
    travis_run apt-get -qq install -y python-wstool
 
    # Install Googletest
    travis_run apt-get -qq install libgtest-dev
-   travis_run_simple cd /usr/src/gtest
-   travis_run_simple cmake CMakeLists.txt
-   travis_run_simple make
-   travis_run_simple cp *.a /usr/lib
+   travis_run_simple cd /usr/src/googletest/googletest
+   travis_run_simple mkdir build
+   travis_run_simple cd build
+   travis_run_simple cmake ..
+   travis_run_simple make install
+   travis_run_simple cp libgtest* /usr/lib/
+   travis_run_simple cd ..
+   travis_run_simple rm -rf build
    travis_run apt-get -qq install -y google-mock
-   travis_run_simple cd /usr/src/gmock
-   travis_run_simple cmake CMakeLists.txt
-   travis_run_simple make
-   travis_run_simple cp *.a /usr/lib
+   travis_run_simple cd /usr/src/googletest/gmock
+   travis_run_simple mkdir build
+   travis_run_simple cd build
+   travis_run_simple cmake ..
+   travis_run_simple make install
+   travis_run_simple cp libgmock* /usr/lib/
+
+   # Install other dependencies for this package
+   travis_run apt -qq install python-opcua        # Library
+   travis_run apt -qq install python-opcua-tools  # Command-line tools
 
    # Install clang-tidy stuff if needed
    [[ "$TEST" == *clang-tidy* ]] && travis_run apt-get -qq install -y clang-tidy
