@@ -209,11 +209,7 @@ function test_workspace() {
    # Run tests, suppressing the error output (confuses Travis display?)
    #travis_run_wait --title "colcon test" "colcon test --packages-skip $TEST_BLACKLIST $blacklist $COLCON_EVENT_HANDLING --merge-install 2>/dev/null"
    travis_fold start test.results "Test results"
-   travis_run_wait ros2 run packml_sm packml_sm_utest #./run_tests.sh
-   travis_run_wait ros2 run packml_ros packml_ros_utest
-   #travis_run_wait ros2 run packml_plugin packml_plugin_utest
-   travis_run_wait python3 -m coverage run $ROS_WS/src/packml_ros2/packml_plc/packml_plc/test_packml_plc_listener.py
-   travis_run_wait python3 -m coverage run $ROS_WS/src/packml_ros2/packml_plc/packml_plc/test_packml_plc_sender.py
+   travis_run ./run_tests.sh
    travis_fold end test.results
 
    # Create badge
