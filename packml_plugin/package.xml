@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>packml_plugin</name>
+  <version>0.1.0</version>
+  <description>PackML State Machine PLC Control in RViz for ROS2.0</description>
+  <maintainer email="dejanira_araiza@artc.a-star.edu.sg">Dejanira Araiza-Illan</maintainer>
+  <author email="dejanira_araiza@artc.a-star.edu.sg">Dejanira Araiza-Illan</author>
+  <author>Austin Deric</author>
+  <license>Apache 2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <build_depend>rviz_common</build_depend>
+  <build_depend>rclcpp</build_depend>
+  <build_depend>packml_msgs</build_depend> 
+  <build_depend>std_msgs</build_depend>
+
+  <exec_depend>rviz_common</exec_depend>
+  <exec_depend>rclcpp</exec_depend>
+  <exec_depend>packml_msgs</exec_depend> 
+  <exec_depend>std_msgs</exec_depend>
+
+  <export>
+   <rviz plugin="${prefix}/plugin_description.xml"/>
+   <build_type>ament_cmake</build_type>
+  </export>
+
+</package>

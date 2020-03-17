@@ -1,0 +1,23 @@
+# Inspired by MoveIt!2 CI files
+dist: bionic
+services:
+  - docker
+language: cpp
+os:
+  - linux
+cache: ccache
+compiler:
+  - gcc
+
+env:
+  global:
+    - ROS_REPO=ros
+    - ROS_DISTRO=dashing
+  jobs:
+    - SCRIPT=travis.sh
+
+before_script:
+  - ln -s . .ci_ros2
+
+script:
+  - . .ci_ros2/$SCRIPT
