@@ -14,7 +14,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic -fPIC -fprofile-arcs -ftest-coverage)
+  add_compile_options(-Wall -Wextra -Wpedantic) # -fPIC #-fprofile-arcs #-ftest-coverage)
 endif()
 
 # prevents weird Qt error
@@ -33,44 +33,38 @@ find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
 
 
 #include all directories
-include_directories(include 
- ${rclcpp_INCLUDE_DIRS}
- ${rqt_gui_cpp_INCLUDE_DIRS}
- ${Qt5_INCLUDE_DIRS}
- ${CMAKE_CURRENT_BINARY_DIR}
- /usr/include/gtest
- /usr/src/gtest)
+include_directories(
+  include
+)
 
-link_directories(/usr/lib)
-
-qt5_wrap_cpp(packml_sm_MOCS include/packml_sm/state_machine.h
- include/packml_sm/state.h
- include/packml_sm/transitions.h
- include/packml_sm/events.h 
- include/packml_sm/common.h)
+qt5_wrap_cpp(packml_sm_MOCS include/packml_sm/state_machine.hpp
+  include/packml_sm/state.hpp
+  include/packml_sm/transitions.hpp
+  include/packml_sm/events.hpp
+  include/packml_sm/common.hpp)
 
 #add libraries
-add_library(${PROJECT_NAME} 
- src/state_machine.cpp 
- src/state.cpp 
- src/transitions.cpp 
- ${packml_sm_MOCS})
-target_link_libraries(${PROJECT_NAME} ${rqt_gui_cpp_LIBRARIES} Qt5::Widgets Qt5::Core gcov)
+add_library(${PROJECT_NAME} SHARED
+  src/state_machine.cpp
+  src/state.cpp
+  src/transitions.cpp
+  ${packml_sm_MOCS})
+ament_target_dependencies(${PROJECT_NAME} rclcpp rqt_gui_cpp Qt5)
 
 #add executables
-add_executable(${PROJECT_NAME}_utest test/utest.cpp)
-target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME} ${rqt_gui_cpp_LIBRARIES} ${rclcpp_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest gcov)
+#add_executable(${PROJECT_NAME}_utest test/utest.cpp)
+#target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME} ${rqt_gui_cpp_LIBRARIES} ${rclcpp_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest gcov)
 
 #install
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
-  RUNTIME DESTINATION lib)
-
-install(TARGETS ${PROJECT_NAME}_utest
-  ARCHIVE DESTINATION lib/${PROJECT_NAME}
-  LIBRARY DESTINATION lib/${PROJECT_NAME}
   RUNTIME DESTINATION lib/${PROJECT_NAME})
+
+#install(TARGETS ${PROJECT_NAME}_utest
+#  ARCHIVE DESTINATION lib/${PROJECT_NAME}
+#  LIBRARY DESTINATION lib/${PROJECT_NAME}
+#  RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY include/${PROJECT_NAME} DESTINATION include)
 
@@ -82,17 +76,24 @@ if(BUILD_TESTING)
   # the following line skips cpplint (only works in a git repo)
   # uncomment the line when this package is not in a git repo
   #set(ament_cmake_cpplint_FOUND TRUE)
+
+  # Conflict in uncrustify vs cpplint
+  list(APPEND AMENT_LINT_AUTO_EXCLUDE
+    ament_cmake_uncrustify
+  )
   ament_lint_auto_find_test_dependencies()
 
-  #ament_add_gtest(${PROJECT_NAME}_utest ${UTEST_SRC_FILES})
-  #target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME} ${rclcpp_LIBRARIES} Qt5::Core pthread gtest)
+  #find_package(ament_cmake_gtest REQUIRED)
+  ament_add_gtest(${PROJECT_NAME}_utest test/utest.cpp)
+  ament_target_dependencies(${PROJECT_NAME}_utest rclcpp rqt_gui_cpp Qt5)
+  target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME})
 
 endif()
 
 
 #Substituting the catkin_package () components:
 #INCLUDE_DIRS
-ament_export_include_directories(include ${CMAKE_CURRENT_BINARY_DIR})
+ament_export_include_directories(include)
 #LIBRARIES
 ament_export_libraries(${PROJECT_NAME})
 #CATKIN_DEPENDS

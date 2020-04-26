@@ -14,7 +14,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic -fPIC -fprofile-arcs -ftest-coverage)
+  add_compile_options(-Wall -Wextra -Wpedantic)#-fPIC -fprofile-arcs -ftest-coverage)
 endif()
 
 # find dependencies
@@ -26,28 +26,18 @@ find_package(std_msgs REQUIRED)
 find_package(Qt5 COMPONENTS Core Widgets REQUIRED)
 
 #include all directories
-include_directories(include 
- ${rclcpp_INCLUDE_DIRS}
- ${packml_msgs_INCLUDE_DIRS}
- ${packml_sm_INCLUDE_DIRS}
- ${std_msgs_INCLUDE_DIRS}
- ${Qt5_INCLUDE_DIRS}
- /usr/include/gtest
- /usr/src/gtest
-# /usr/include/gmock
-# /usr/src/gmock
+include_directories(
+  include
 )
 
-link_directories(/usr/lib)
-
 add_executable(packml_ros_node src/packml_ros_node.cpp)
-target_link_libraries(packml_ros_node ${rclcpp_LIBRARIES} ${packml_msgs_LIBRARIES} ${packml_sm_LIBRARIES} ${std_msgs_LIBRARIES} Qt5::Widgets Qt5::Core gcov)
+ament_target_dependencies(packml_ros_node rclcpp packml_msgs packml_sm std_msgs Qt5)
 
-add_executable(${PROJECT_NAME}_utest test/utest.cpp)
-target_link_libraries(${PROJECT_NAME}_utest ${rclcpp_LIBRARIES} ${packml_msgs_LIBRARIES} ${packml_sm_LIBRARIES} ${std_msgs_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest gmock gcov)
+#add_executable(${PROJECT_NAME}_utest test/utest.cpp)
+#target_link_libraries(${PROJECT_NAME}_utest ${rclcpp_LIBRARIES} ${packml_msgs_LIBRARIES} ${packml_sm_LIBRARIES} ${std_msgs_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest gmock gcov)
 
 #install
-install(TARGETS packml_ros_node ${PROJECT_NAME}_utest
+install(TARGETS packml_ros_node #${PROJECT_NAME}_utest
   ARCHIVE DESTINATION lib/${PROJECT_NAME}
   LIBRARY DESTINATION lib/${PROJECT_NAME}
   RUNTIME DESTINATION lib/${PROJECT_NAME})
@@ -61,6 +51,11 @@ if(BUILD_TESTING)
   # uncomment the line when this package is not in a git repo
   #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
+
+  find_package(ament_cmake_gtest REQUIRED)
+  find_package(ament_cmake_gmock REQUIRED)
+  ament_add_gmock(${PROJECT_NAME}_utest test/utest.cpp)
+  ament_target_dependencies(${PROJECT_NAME}_utest rclcpp packml_msgs packml_sm std_msgs Qt5)
   #ament_add_gtest(${PROJECT_NAME}_utest ${UTEST_SRC_FILES})
   #target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME} ${rclcpp_LIBRARIES} ${packml_msgs_LIBRARIES} ${packml_sm_LIBRARIES} ${std_msgs_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest)
 endif()

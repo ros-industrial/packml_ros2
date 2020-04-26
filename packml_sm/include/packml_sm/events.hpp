@@ -1,30 +1,26 @@
-/**
- * @license Software License Agreement (Apache License)
- *
- * @copyright Copyright (c) 2016 Shaun Edwards
- * @copyright Copyright (c) 2019 ROS-Industrial Consortium Asia Pacific (ROS 2 compatibility)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2016 Shaun Edwards
+// Copyright (c) 2019 ROS-Industrial Consortium Asia Pacific (ROS 2 compatibility)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 
-#ifndef PACKML_SM__EVENTS_H_
-#define PACKML_SM__EVENTS_H_
+#ifndef PACKML_SM__EVENTS_HPP_
+#define PACKML_SM__EVENTS_HPP_
 
 #include "QEvent"
 #include "QAbstractTransition"
-#include "packml_sm/common.h"
-#include "packml_sm/state.h"
+#include "packml_sm/common.hpp"
+#include "packml_sm/state.hpp"
 
 namespace packml_sm
 {
@@ -75,7 +71,7 @@ struct CmdEvent : public QEvent
     return new CmdEvent(CmdEnum::UNHOLD);
   }
 
-  explicit  CmdEvent(const CmdEnum &cmd_value)
+  explicit CmdEvent(const CmdEnum & cmd_value)
   : QEvent(QEvent::Type(PACKML_CMD_EVENT_TYPE)),
     cmd(cmd_value) {}
 
@@ -90,14 +86,15 @@ struct StateCompleteEvent : public QEvent
 
 struct ErrorEvent : public QEvent
 {
-  explicit  ErrorEvent(const int &code_value)
+  explicit ErrorEvent(const int & code_value)
   : QEvent(QEvent::Type(PACKML_ERROR_EVENT_TYPE)),
     code(code_value),
     name(),
     description() {}
 
-  ErrorEvent(const int &code_value, const QString &name_value,
-    const QString &description_value)
+  ErrorEvent(
+    const int & code_value, const QString & name_value,
+    const QString & description_value)
   : QEvent(QEvent::Type(PACKML_ERROR_EVENT_TYPE)),
     code(code_value),
     name(name_value),
@@ -111,4 +108,4 @@ struct ErrorEvent : public QEvent
 
 }  // namespace packml_sm
 
-#endif  // PACKML_SM__EVENTS_H_
+#endif  // PACKML_SM__EVENTS_HPP_

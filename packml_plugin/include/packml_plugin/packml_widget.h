@@ -24,12 +24,7 @@
 #include "ui_packml.h"  // UI layout and components
 #include "rclcpp/rclcpp.hpp" // ROS 2 node
 #include "packml_msgs/srv/transition.hpp"  // Datatypes for packml topics and services
-#include "packml_msgs/msg/state.hpp"
-#include "packml_msgs/msg/status.hpp"
-#include "packml_msgs/msg/all_times.hpp"
-#include "packml_msgs/msg/all_status.hpp"
 #include "packml_msgs/srv/all_status.hpp"
-#include "std_msgs/msg/int8.hpp"
 
 
 

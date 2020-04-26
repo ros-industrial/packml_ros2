@@ -1,33 +1,30 @@
-/**
- * @license  Software License Agreement (Apache License)
- *
- * @copyright Copyright (c) 2016 Shaun Edwards
- * @copyright Copyright (c) 2019 ROS-Industrial Consortium Asia Pacific (ROS 2 compatibility)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2016 Shaun Edwards
+// Copyright (c) 2019 ROS-Industrial Consortium Asia Pacific (ROS 2 compatibility)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 
-#ifndef PACKML_SM__STATE_MACHINE_H_
-#define PACKML_SM__STATE_MACHINE_H_
+#ifndef PACKML_SM__STATE_MACHINE_HPP_
+#define PACKML_SM__STATE_MACHINE_HPP_
+
+#include <QtGui>
 
 #include <functional>
-#include <QtGui>
 #include <memory>
 #include "QEvent"
 #include "QAbstractTransition"
-#include "packml_sm/state.h"
-#include "packml_sm/transitions.h"
+#include "packml_sm/state.hpp"
+#include "packml_sm/transitions.hpp"
 #include "rclcpp/rclcpp.hpp"
 
 namespace packml_sm
@@ -41,8 +38,6 @@ namespace packml_sm
 class StateMachineInterface
 {
 public:
-
-
   /**
   * @brief Function to activate the state machine
   */
@@ -127,9 +122,8 @@ public:
   * @brief Function that implements the abort state
   */
   virtual bool abort();
+
 protected:
-
-
   /**
   * @brief Function that binds a QT event to the function for the state start
   */
@@ -199,9 +193,8 @@ void init(int argc, char * argv[]);
 class StateMachine : public QObject, public StateMachineInterface
 {
   Q_OBJECT
+
 public:
-
-
   /**
   * @brief Function to create a single cycle state machine (executes once)
   */
@@ -262,9 +255,8 @@ public:
   * @brief Class destructor
   */
   virtual ~StateMachine() {}
+
 protected:
-
-
   /**
   * @brief Class constructor
   */
@@ -454,18 +446,16 @@ protected:
   * @brief QT state machine object
   */
   QStateMachine sm_internal_;
+
 protected slots:
-
-
   /**
   * @brief Function to start a state
   * @param value - state number
   * @param name - state name
   */
   void setState(int value, QString name);
+
 signals:
-
-
   /**
   * @brief Function to trigger QT objects when the state has changed
   * @param value - new state number
@@ -481,9 +471,8 @@ signals:
 class ContinuousCycle : public StateMachine
 {
   Q_OBJECT
+
 public:
-
-
   /**
   * @brief Class constructor
   */
@@ -503,9 +492,8 @@ public:
 class SingleCycle : public StateMachine
 {
   Q_OBJECT
+
 public:
-
-
   /**
   * @brief Class constructor
   */
@@ -520,4 +508,4 @@ public:
 
 }  // namespace packml_sm
 
-#endif  // PACKML_SM__STATE_MACHINE_H_
+#endif  // PACKML_SM__STATE_MACHINE_HPP_

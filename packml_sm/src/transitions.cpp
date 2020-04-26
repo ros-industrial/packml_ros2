@@ -1,27 +1,23 @@
-/**
- * @license Software License Agreement (Apache License)
- *
- * @copyright Copyright (c) 2016 Shaun Edwards
- * @copyright Copyright (c) 2019 Dejanira Araiza Illan, ROS-Industrial Asia Pacific
- * Modified for ROS2.0 compatibility
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2016 Shaun Edwards
+// Copyright (c) 2019 Dejanira Araiza Illan, ROS-Industrial Asia Pacific
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
 
 
 #include <iostream>
-#include "packml_sm/transitions.h"
-#include "packml_sm/events.h"
+#include "packml_sm/transitions.hpp"
+#include "packml_sm/events.hpp"
 
 namespace packml_sm
 {
@@ -40,10 +36,11 @@ bool StateCompleteTransition::eventTest(QEvent * e)
   if (e->type() != QEvent::Type(PACKML_STATE_COMPLETE_EVENT_TYPE)) {
     return false;
   }
-  return (true);
+  return true;
 }
 
-CmdTransition::CmdTransition(const CmdEnum &cmd_value, const QString &name_value,
+CmdTransition::CmdTransition(
+  const CmdEnum & cmd_value, const QString & name_value,
   PackmlState & from, PackmlState & to)
 : cmd(cmd_value),
   name(name_value)
@@ -62,7 +59,7 @@ bool CmdTransition::eventTest(QEvent * e)
   }
   CmdEvent * se = static_cast<CmdEvent *>(e);
 //    ROS_INFO_STREAM("Type cmd: " << cmd << ", event cmd: " << se->cmd);
-  return (cmd == se->cmd);
+  return cmd == se->cmd;
 }
 
 ErrorTransition::ErrorTransition(PackmlState & from, PackmlState & to)
@@ -78,7 +75,7 @@ bool ErrorTransition::eventTest(QEvent * e)
   if (e->type() != QEvent::Type(PACKML_ERROR_EVENT_TYPE)) {
     return false;
   }
-  return (true);
+  return true;
 }
 
 }  // namespace packml_sm
