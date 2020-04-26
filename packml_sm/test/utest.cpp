@@ -1,34 +1,28 @@
-/**
- * @License Software License Agreement (Apache License)
- *
- * @Copyright (c) 2016 Shaun Edwards
- * @Copyright (c) 2019 Dejanira Araiza Illan, ROS-Industrial Asia Pacific
- * Modified for ROS2.0 compatibility
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2016 Shaun Edwards
+// Copyright (c) 2019 Dejanira Araiza Illan, ROS-Industrial Asia Pacific
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
-
-#include <thread>
 #include <QCoreApplication>
 #include <QTimer>
 #include <gtest/gtest.h>
+#include <thread>
 #include <iostream>
 #include <chrono>
 #include <memory>
-#include "packml_sm/common.h"
-#include "packml_sm/events.h"
-#include "packml_sm/state_machine.h"
+#include "packml_sm/common.hpp"
+#include "packml_sm/events.hpp"
+#include "packml_sm/state_machine.hpp"
 #include "rclcpp/rclcpp.hpp"
 
 void qtWorker(int argc, char * argv[])
@@ -51,9 +45,8 @@ bool waitForState(packml_sm::StatesEnum state, packml_sm::StateMachine & sm)
 {
   const double TIMEOUT = 2.0;
   const int SAMPLES = 50;
-  rclcpp::Rate r(static_cast<double>(SAMPLES)/TIMEOUT);
-  for (int ii = 0; ii < SAMPLES; ++ii)
-  {
+  rclcpp::Rate r(static_cast<double>(SAMPLES) / TIMEOUT);
+  for (int ii = 0; ii < SAMPLES; ++ii) {
     if (sm.getCurrentState() == static_cast<int>(state)) {
       std::cout << "State changed to " << state << std::endl;
       return true;
@@ -261,8 +254,8 @@ TEST(Packml_sm, testing_failed_state_transition_executions)
 TEST(Packml_sm, testing_init_function)
 {
   char ** names;
-  names=new char*[10];
-  packml_sm::init(2,names);
+  names = new char *[10];
+  packml_sm::init(2, names);
 }
 
 TEST(Packml_sm, testing_setResetting)
@@ -279,7 +272,7 @@ int main(int argc, char ** argv)
 {
   std::thread thr(qtWorker, argc, argv);
   // qtWorker(argc, argv);
-  while(NULL == QCoreApplication::instance()){
+  while (NULL == QCoreApplication::instance()) {
     printf("Waiting for QCore application to start\n");
   }
   thr.detach();

@@ -1,25 +1,21 @@
-/**
- * @license  Software License Agreement (Apache License)
- *
- * @copyright Copyright (c) 2016 Shaun Edwards
- * @copyright Copyright (c) 2019 ROS-Industrial Consortium Asia Pacific (ROS 2 compatibility)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+// Copyright (c) 2016 Shaun Edwards
+// Copyright (c) 2019 ROS-Industrial Consortium Asia Pacific (ROS 2 compatibility)
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
 
 
-#ifndef PACKML_SM__COMMON_H_
-#define PACKML_SM__COMMON_H_
+#ifndef PACKML_SM__COMMON_HPP_
+#define PACKML_SM__COMMON_HPP_
 
 namespace packml_sm
 {
@@ -32,9 +28,9 @@ namespace packml_sm
 
 
 template<typename T>
-std::ostream& operator<<(
+std::ostream & operator<<(
   typename std::enable_if<std::is_enum<T>::value,
-  std::ostream>::type& stream, const T& e)
+  std::ostream>::type & stream, const T & e)
 {
   return stream << static_cast<typename std::underlying_type<T>::type>(e);
 }
@@ -97,4 +93,4 @@ enum class CmdEnum
   UNHOLD = 102
 };
 }  // namespace packml_sm
-#endif  // PACKML_SM__COMMON_H_
+#endif  // PACKML_SM__COMMON_HPP_

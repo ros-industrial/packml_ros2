@@ -24,7 +24,7 @@ find_package(ament_cmake REQUIRED)
 # find_package(<dependency> REQUIRED)
 find_package(builtin_interfaces REQUIRED) #For using time and rate
 find_package(rosidl_default_generators REQUIRED) #For messages and services building
-find_package(std_msgs REQUIRED) 
+find_package(std_msgs REQUIRED)
 
 rosidl_generate_interfaces(packml_msgs
   "msg/Mode.msg"

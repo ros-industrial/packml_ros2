@@ -5,7 +5,7 @@
   <version>0.0.0</version>
   <description>Packml state machine</description>
   <maintainer email="shaun.edwards@gmail.com">Shaun Edwards</maintainer>
-  <license>Apache 2.0</license>
+  <license>Apache-2.0</license>
   <author>Shaun Edwards</author>
   <author>Dejanira Araiza-Illan (ROS2.0 compatible)</author>
 
@@ -13,12 +13,15 @@
 
   <build_depend>rclcpp</build_depend>
   <build_depend>rqt_gui_cpp</build_depend>
-  <build_depend>Qt5</build_depend>
+  <build_depend>qtbase5-dev</build_depend>
   <build_depend>packml_msgs</build_depend>
 
   <exec_depend>rclcpp</exec_depend>
+  <exec_depend>libqt5-core</exec_depend>
+  <exec_depend>libqt5-gui</exec_depend>
+  <exec_depend>libqt5-opengl</exec_depend>
+  <exec_depend>libqt5-widgets</exec_depend>
   <exec_depend>rqt_gui_cpp</exec_depend>
-  <exec_depend>Qt5</exec_depend>
   <exec_depend>packml_msgs</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>

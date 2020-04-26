@@ -41,13 +41,13 @@ set(SOURCES src/packml_plugin.cpp src/packml_widget.cpp ${QT_MOC})
 qt5_wrap_ui(QT_UI_FILES src/packml.ui)
 
 #set_property(SOURCE include/plugin_panel.h PROPERTY SKIP_AUTOMOC ON)
- 
+
 add_library(${PROJECT_NAME} SHARED
   ${QT_UI_FILES}
   ${SOURCES}
 )
 
-include_directories(${PROJECT_NAME} 
+include_directories(${PROJECT_NAME}
   include/
 )
 
@@ -73,9 +73,6 @@ install(TARGETS ${PROJECT_NAME}
 )
 
 #install(DIRECTORY include)
-
-#ament_export_interfaces(${PROJECT_NAME} HAS_LIBRARY_TARGET)
-#ament_export_libraries(${PROJECT_NAME})
 
 pluginlib_export_plugin_description_file(rviz_common plugin_description.xml)
 
