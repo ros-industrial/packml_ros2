@@ -76,14 +76,9 @@ if(BUILD_TESTING)
   # the following line skips cpplint (only works in a git repo)
   # uncomment the line when this package is not in a git repo
   #set(ament_cmake_cpplint_FOUND TRUE)
-
-  # Conflict in uncrustify vs cpplint
-  list(APPEND AMENT_LINT_AUTO_EXCLUDE
-    ament_cmake_uncrustify
-  )
   ament_lint_auto_find_test_dependencies()
 
-  #find_package(ament_cmake_gtest REQUIRED)
+  find_package(ament_cmake_gtest REQUIRED)
   ament_add_gtest(${PROJECT_NAME}_utest test/utest.cpp)
   ament_target_dependencies(${PROJECT_NAME}_utest rclcpp rqt_gui_cpp Qt5)
   target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME})

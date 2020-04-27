@@ -229,25 +229,44 @@ StateMachine::StateMachine()
   aborting_ = ActingState::Aborting();
   execute_ = ActingState::Execute(stoppable_);
 
-  connect(abortable_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(stoppable_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(unholding_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(held_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(holding_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(idle_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(starting_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(completing_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(complete_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(resetting_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(unsuspending_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(suspended_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(suspending_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(stopped_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(stopping_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(clearing_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(aborted_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(aborting_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
-  connect(execute_, SIGNAL(stateEntered(int, QString)), this, SLOT(setState(int, QString)));
+  connect(abortable_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(stoppable_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(unholding_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(held_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(holding_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(idle_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(starting_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(completing_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(complete_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(resetting_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(unsuspending_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(suspended_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(suspending_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(stopped_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(stopping_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(clearing_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(aborted_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(aborting_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
+  connect(execute_, SIGNAL(
+      stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
   printf("Adding states to state machine\n");
   sm_internal_.addState(abortable_);
   sm_internal_.addState(aborted_);
