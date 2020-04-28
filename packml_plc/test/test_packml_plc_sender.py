@@ -25,55 +25,55 @@ from packml_plc.packml_plc_sender import DriverSender
 
 class TestMethods(unittest.TestCase):
 
-    def test_DriverSender(self):
+    def test_driversender(self):
         driver = DriverSender()
         self.assertNotEqual(driver.client, [])
 
-    def test_DriverSender_connect(self):
+    def test_driversender_connect(self):
         driver = DriverSender()
         driver.client.connect = MagicMock()
         driver.connect()
 
-    def test_DriverSender_exit(self):
+    def test_driversender_exit(self):
         driver = DriverSender()
         driver.client.disconnect = MagicMock()
         driver.__exit__(1, 1, 1)
 
-    def test_DriverSender_transitonRequest(self):
+    def test_driversender_trans_request(self):
         driver = DriverSender()
         driver.client.get_node = MagicMock()
         res = Transition.Response()
         req = Transition.Request()
         req.command = 1
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 2
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 3
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 4
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 5
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 6
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 7
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 100
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 101
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 102
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, False)
         req.command = 103
-        driver.transRequest(req, res)
+        driver.trans_request(req, res)
         self.assertNotEqual(res.success, True)

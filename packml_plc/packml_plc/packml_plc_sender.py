@@ -30,7 +30,7 @@ class DriverSender(Node):
 
     def __init__(self):
         super().__init__('driver_sender')
-        self.srv = self.create_service(Transition, 'transition', self.transRequest)
+        self.srv = self.create_service(Transition, 'transition', self.trans_request)
         self.client = Client('opc.tcp://192.168.125.2:4840/freeopcua/server/')
 
     def connect(self):
@@ -39,89 +39,89 @@ class DriverSender(Node):
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.client.disconnect()
 
-    def transRequest(self, req, res):
+    def trans_request(self, req, res):
         command_rtn = False
         command_valid = True
         command_int = req.command
         print('Evaluating transition request command: ' + str(command_int))
         try:
             if command_int == 5:
-                cmdAbort = self.client.get_node('ns=3;' +
-                                                's=\"PackML_Status\".\"EM00\"' +
-                                                '.\"Unit\".\"Cmd_Abort\"')
-                cmdAbort.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_abort = self.client.get_node('ns=3;' +
+                                                 's=\"PackML_Status\".\"EM00\"' +
+                                                 '.\"Unit\".\"Cmd_Abort\"')
+                cmd_abort.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Abort Command . . .')
                 command_rtn = True
             elif command_int == 7:
-                cmdStop = self.client.get_node('ns=3;' +
-                                               's=\"PackML_Status\".\"EM00\".' +
-                                               '\"Unit\".\"Cmd_Stop\""')
-                cmdStop.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_stop = self.client.get_node('ns=3;' +
+                                                's=\"PackML_Status\".\"EM00\".' +
+                                                '\"Unit\".\"Cmd_Stop\""')
+                cmd_stop.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Stop Command . . .')
                 command_rtn = True
             elif command_int == 1:
-                cmdClear = self.client.get_node('ns=3;' +
-                                                's=\"PackML_Status\".\"EM00\".' +
-                                                '\"Unit\".\"Cmd_Clear\"')
-                cmdClear.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_clear = self.client.get_node('ns=3;' +
+                                                 's=\"PackML_Status\".\"EM00\".' +
+                                                 '\"Unit\".\"Cmd_Clear\"')
+                cmd_clear.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Clear Command . . .')
                 command_rtn = True
             elif command_int == 4:
-                cmdHold = self.client.get_node('ns=3;' +
-                                               's=\"PackML_Status\".\"EM00\".' +
-                                               '\"Unit\".\"Cmd_Hold\"')
-                cmdHold.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_hold = self.client.get_node('ns=3;' +
+                                                's=\"PackML_Status\".\"EM00\".' +
+                                                '\"Unit\".\"Cmd_Hold\"')
+                cmd_hold.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Hold Command . . .')
                 command_rtn = True
             elif command_int == 6:
-                cmdReset = self.client.get_node('ns=3;' +
-                                                's=\"PackML_Status\".\"EM00\".' +
-                                                '\"Unit\".\"Cmd_Reset\"')
-                cmdReset.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_reset = self.client.get_node('ns=3;' +
+                                                 's=\"PackML_Status\".\"EM00\".' +
+                                                 '\"Unit\".\"Cmd_Reset\"')
+                cmd_reset.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Reset Command . . .')
                 command_rtn = True
             elif command_int == 2:
-                cmdStart = self.client.get_node('ns=3;' +
-                                                's=\"PackML_Status\".\"EM00\".' +
-                                                '\"Unit\".\"Cmd_Start\"')
-                cmdStart.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_start = self.client.get_node('ns=3;' +
+                                                 's=\"PackML_Status\".\"EM00\".' +
+                                                 '\"Unit\".\"Cmd_Start\"')
+                cmd_start.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Start Command . . .')
                 command_rtn = True
             elif command_int == 3:
-                cmdStop = self.client.get_node('ns=3;' +
-                                               's=\"PackML_Status\".\"EM00\".' +
-                                               '\"Unit\".\"Cmd_Stop\"')
-                cmdStop.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_stop = self.client.get_node('ns=3;' +
+                                                's=\"PackML_Status\".\"EM00\".' +
+                                                '\"Unit\".\"Cmd_Stop\"')
+                cmd_stop.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.05)
                 print('Sending Stop Command . . .')
                 command_rtn = True
             elif command_int == 100:
-                cmdSuspend = self.client.get_node('ns=3;' +
-                                                  's=\"PackML_Status\".\"EM00\".' +
-                                                  '\"Unit\".\"Cmd_Suspend\"')
-                cmdSuspend.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_suspend = self.client.get_node('ns=3;' +
+                                                   's=\"PackML_Status\".\"EM00\".' +
+                                                   '\"Unit\".\"Cmd_Suspend\"')
+                cmd_suspend.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Suspend Command . . .')
                 command_rtn = True
             elif command_int == 102:
-                cmdUnhold = self.client.get_node('ns=3;' +
-                                                 's=\"PackML_Status\".\"EM00\".' +
-                                                 '\"Unit\".\"Cmd_Unhold\"')
-                cmdUnhold.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_unhold = self.client.get_node('ns=3;' +
+                                                  's=\"PackML_Status\".\"EM00\".' +
+                                                  '\"Unit\".\"Cmd_Unhold\"')
+                cmd_unhold.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Unhold Command . . .')
                 command_rtn = True
             elif command_int == 101:
-                cmdUnsuspend = self.client.get_node('ns=3;' +
-                                                    's=\"PackML_Status\".\"EM00\".' +
-                                                    '\"Unit\".\"Cmd_Unsuspend\"')
-                cmdUnsuspend.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
+                cmd_unsuspend = self.client.get_node('ns=3;' +
+                                                     's=\"PackML_Status\".\"EM00\".' +
+                                                     '\"Unit\".\"Cmd_Unsuspend\"')
+                cmd_unsuspend.set_attribute(ua.AttributeIds.Value, ua.DataValue(True))
                 time.sleep(0.1)
                 print('Sending Unsuspend Command . . .')
                 command_rtn = True

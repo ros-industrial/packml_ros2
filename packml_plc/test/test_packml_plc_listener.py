@@ -26,36 +26,36 @@ from packml_plc.packml_plc_listener import DriverListener
 from packml_plc.packml_plc_listener import HelloClient
 from packml_plc.packml_plc_listener import main
 from packml_plc.packml_plc_listener import newvals, thee
-from packml_plc.packml_plc_listener import PLCListener
+from packml_plc.packml_plc_listener import plc_listener
 import rclpy
 
 
 class TestMethods(unittest.TestCase):
 
-    def test_HelloClient(self):
+    def test_helloclient(self):
         client = HelloClient('freeopcua/server/')
         client.client.connect = MagicMock()
         client.client.disconnect = MagicMock()
         client.__enter__()
         client.__exit__(1, 1, 1)
 
-    def test_DriverListener(self):
+    def test_driverlistener(self):
         rclpy.init(args=None)
         driver = DriverListener()
         driver.create_service = MagicMock()
         self.assertNotEqual(driver.srv, [])
         res = AllStatus.Response()
-        driver.sendData(0, res)
+        driver.send_data(0, res)
         self.assertNotEqual(res, [])
         rclpy.shutdown()
 
-    def test_PLCListener(self):
+    def test_plclistener(self):
         HelloClient.__enter__ = MagicMock()
         HelloClient.__exit__ = MagicMock()
         e = threading.Event()
-        plc_listener = threading.Timer(1.0, PLCListener, args=(e,))
-        plc_listener.start()
-        plc_listener.join(5)
+        listener = threading.Timer(1.0, plc_listener, args=(e,))
+        listener.start()
+        listener.join(5)
         e.set()
         self.assertEqual(newvals, [False, False, False, False, False, False,
                                    False, False, False, False, False, False,

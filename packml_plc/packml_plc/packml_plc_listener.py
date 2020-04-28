@@ -64,9 +64,9 @@ class DriverListener(Node):
 
     def __init__(self):
         super().__init__('driver_listener')
-        self.srv = self.create_service(AllStatus, 'allStatus', self.sendData)
+        self.srv = self.create_service(AllStatus, 'allStatus', self.send_data)
 
-    def sendData(self, req, res):
+    def send_data(self, req, res):
         global time_stopped
         global time_idle
         global time_starting
@@ -122,7 +122,7 @@ class DriverListener(Node):
         return res
 
 
-def PLCListener(e):
+def plc_listener(e):
     """Create the connection with the PLC, monitors the state in its state machine."""
     # Resetting the time counters every time the connection between the PLC and ROS is initialized
     global time_stopped
@@ -251,8 +251,8 @@ def PLCListener(e):
 def main(args=None):
     rclpy.init(args=args)
     # Create thread to get data from PLC
-    plc_listener = threading.Timer(1.0, PLCListener, args=(thee,))
-    plc_listener.start()
+    listener = threading.Timer(1.0, plc_listener, args=(thee,))
+    listener.start()
     driver_listener = DriverListener()
     rclpy.spin(driver_listener)
 
