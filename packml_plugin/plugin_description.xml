@@ -1,5 +1,5 @@
-<library path="packml_plugin/libpackml_plugin">
-  <class name="packml_plugin" type="PackmlPlugin" base_class_type="rviz_common::Panel">
+<library path="packml_plugin">
+  <class name="packml_plugins/packml_plugin" type="PackmlPlugin" base_class_type="rviz_common::Panel">
     <description>
       Example of plugin for RViz in ROS 2.0
     </description>

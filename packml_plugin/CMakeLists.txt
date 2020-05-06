@@ -35,7 +35,7 @@ find_package(rosidl_typesupport_cpp REQUIRED)
 
 add_definitions(-DQT_NO_KEYWORDS)
 
-qt5_wrap_cpp(QT_MOC include/packml_plugin/packml_plugin.h include/packml_plugin/packml_widget.h)
+qt5_wrap_cpp(QT_MOC include/packml_plugin/packml_plugin.hpp include/packml_plugin/packml_widget.hpp)
 set(SOURCES src/packml_plugin.cpp src/packml_widget.cpp ${QT_MOC})
 
 qt5_wrap_ui(QT_UI_FILES src/packml.ui)
@@ -64,17 +64,23 @@ ament_target_dependencies(${PROJECT_NAME} "rviz_common" "Qt5" "packml_msgs" "std
 
 #install(FILES plugin_description.xml DESTINATION share)
 
-install(TARGETS ${PROJECT_NAME}
-  EXPORT ${PROJECT_NAME}
-  ARCHIVE DESTINATION lib/${PROJECT_NAME}
-  LIBRARY DESTINATION lib/${PROJECT_NAME}
-  RUNTIME DESTINATION lib/${PROJECT_NAME}
-  INCLUDES DESTINATION include
-)
 
 #install(DIRECTORY include)
 
 pluginlib_export_plugin_description_file(rviz_common plugin_description.xml)
+
+install(TARGETS ${PROJECT_NAME}
+  EXPORT ${PROJECT_NAME}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+  INCLUDES DESTINATION include
+)
+
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
