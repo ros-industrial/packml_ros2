@@ -14,7 +14,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)#-fPIC -fprofile-arcs -ftest-coverage)
+  add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 # find dependencies
@@ -33,31 +33,20 @@ include_directories(
 add_executable(packml_ros_node src/packml_ros_node.cpp)
 ament_target_dependencies(packml_ros_node rclcpp packml_msgs packml_sm std_msgs Qt5)
 
-#add_executable(${PROJECT_NAME}_utest test/utest.cpp)
-#target_link_libraries(${PROJECT_NAME}_utest ${rclcpp_LIBRARIES} ${packml_msgs_LIBRARIES} ${packml_sm_LIBRARIES} ${std_msgs_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest gmock gcov)
-
 #install
-install(TARGETS packml_ros_node #${PROJECT_NAME}_utest
+install(TARGETS packml_ros_node
   ARCHIVE DESTINATION lib/${PROJECT_NAME}
   LIBRARY DESTINATION lib/${PROJECT_NAME}
   RUNTIME DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
-  # the following line skips the linter which checks for copyrights
-  # uncomment the line when a copyright and license is not present in all source files
-  #set(ament_cmake_copyright_FOUND TRUE)
-  # the following line skips cpplint (only works in a git repo)
-  # uncomment the line when this package is not in a git repo
-  #set(ament_cmake_cpplint_FOUND TRUE)
   ament_lint_auto_find_test_dependencies()
 
   find_package(ament_cmake_gtest REQUIRED)
   find_package(ament_cmake_gmock REQUIRED)
   ament_add_gmock(${PROJECT_NAME}_utest test/utest.cpp)
   ament_target_dependencies(${PROJECT_NAME}_utest rclcpp packml_msgs packml_sm std_msgs Qt5)
-  #ament_add_gtest(${PROJECT_NAME}_utest ${UTEST_SRC_FILES})
-  #target_link_libraries(${PROJECT_NAME}_utest ${PROJECT_NAME} ${rclcpp_LIBRARIES} ${packml_msgs_LIBRARIES} ${packml_sm_LIBRARIES} ${std_msgs_LIBRARIES} Qt5::Widgets Qt5::Core pthread gtest)
 endif()
 
 #Substituting the catkin_package () components:
