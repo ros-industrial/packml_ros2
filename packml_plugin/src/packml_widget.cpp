@@ -33,9 +33,7 @@ PackmlWidget::PackmlWidget(QWidget * parent)
   // UI setup
   ui_ = std::make_unique<Ui::PackmlPanel>();
   ui_->setupUi(this);
-  QTimer * timer = new QTimer(this);
-  connect(timer, SIGNAL(timeout()), this, SLOT(statusRequest()));
-  timer->start(200);
+  startTimer(200);
   connect(ui_->start_button, SIGNAL(clicked()), this, SLOT(onStartButton()));
   connect(ui_->abort_button, SIGNAL(clicked()), this, SLOT(onAbortButton()));
   connect(ui_->clear_button, SIGNAL(clicked()), this, SLOT(onClearButton()));
@@ -50,9 +48,7 @@ PackmlWidget::PackmlWidget(QWidget * parent)
   status_client_ = nh_->create_client<packml_msgs::srv::AllStatus>("allStatus");
 }
 
-PackmlWidget::~PackmlWidget() = default;
-
-void PackmlWidget::statusRequest()
+void PackmlWidget::timerEvent(QTimerEvent * /*event*/)  // NOLINT(readability/casting)
 {
   auto update = std::make_shared<packml_msgs::srv::AllStatus::Request>();
   update->command = true;

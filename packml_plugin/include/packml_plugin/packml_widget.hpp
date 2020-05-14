@@ -51,7 +51,6 @@ public:
   ~PackmlWidget() override = default;
 
 
-
   /**
   * @brief Node for the Widget or RViz plugin
   */
@@ -155,7 +154,7 @@ public Q_SLOTS:
   /**
   * @brief Function called by a QTimer that triggers the update of the state machine state and elapsed time
   */
-  void statusRequest();
+  void timerEvent(QTimerEvent *) override;
 };
 
 #endif  // PACKML_PLUGIN__PACKML_WIDGET_HPP_
