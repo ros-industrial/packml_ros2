@@ -25,7 +25,7 @@
 namespace packml_sm
 {
 
-void PackmlState::onEntry(QEvent * e)
+void PackmlState::onEntry(QEvent * /*e*/)  // NOLINT(readability/casting)
 {
   std::cout << "Entering state: " << name_.toUtf8().constData() << "(" << state_ << ")" <<
     std::endl;
@@ -34,7 +34,7 @@ void PackmlState::onEntry(QEvent * e)
 }
 
 
-void PackmlState::onExit(QEvent * e)
+void PackmlState::onExit(QEvent * /*e*/)  // NOLINT(readability/casting)
 {
   std::cout << "Exiting state: " << name_.toUtf8().constData() << "(" << state_ << ")" <<
     std::endl;

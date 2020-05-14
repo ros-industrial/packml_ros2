@@ -3,9 +3,6 @@ services:
   - docker
 
 env:
-  global:
-    - PARALLEL_TESTS=true
-
   matrix:
     - ROS_DISTRO="dashing" ROS_REPO=testing
     - ROS_DISTRO="dashing" ROS_REPO=main

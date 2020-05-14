@@ -5,9 +5,6 @@ before_script:
   - apk add --update bash coreutils tar curl
   - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
 
-variables:
-  PARALLEL_TESTS: "true"
-
 dashing-main:
   script: .industrial_ci/gitlab.sh ROS_DISTRO=dashing ROS_REPO=main
 
