@@ -43,7 +43,7 @@ public:
   /**
   * @brief Destructor of the class
   */
-  virtual ~PackmlPlugin() {}
+  ~PackmlPlugin() override = default;
 
 protected:
   /**

@@ -48,7 +48,8 @@ public:
   /**
   * @brief Destructor for the widget object
   */
-  virtual ~PackmlWidget();
+  ~PackmlWidget() override = default;
+
 
 
   /**
