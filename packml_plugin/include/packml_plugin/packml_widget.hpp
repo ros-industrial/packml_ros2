@@ -60,7 +60,7 @@ public:
   /**
   * @brief Creates the GUI layout with an UI object as reference
   */
-  Ui::PackmlPanel * ui_;
+  std::unique_ptr<Ui::PackmlPanel> ui_;
 
 
   /**

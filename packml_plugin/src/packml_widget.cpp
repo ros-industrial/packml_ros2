@@ -31,7 +31,7 @@ PackmlWidget::PackmlWidget(QWidget * parent)
 {
   nh_ = rclcpp::Node::make_shared("uiPlugin");  // Creates a node
   // UI setup
-  ui_ = new Ui::PackmlPanel;
+  ui_ = std::make_unique<Ui::PackmlPanel>();
   ui_->setupUi(this);
   QTimer * timer = new QTimer(this);
   connect(timer, SIGNAL(timeout()), this, SLOT(statusRequest()));
@@ -50,11 +50,7 @@ PackmlWidget::PackmlWidget(QWidget * parent)
   status_client_ = nh_->create_client<packml_msgs::srv::AllStatus>("allStatus");
 }
 
-PackmlWidget::~PackmlWidget()
-{
-  delete ui_;
-}
-
+PackmlWidget::~PackmlWidget() = default;
 
 void PackmlWidget::statusRequest()
 {
