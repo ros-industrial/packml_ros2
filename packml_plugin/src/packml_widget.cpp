@@ -16,6 +16,7 @@
 // limitations under the License.
 
 
+#include <chrono>
 #include <iomanip>
 #include <sstream>
 #include <memory>
@@ -61,7 +62,7 @@ void PackmlWidget::statusRequest()
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   if (rclcpp::spin_until_future_complete(nh_,
-    result_future) != rclcpp::executor::FutureReturnCode::SUCCESS)
+    result_future, std::chrono::milliseconds(100)) != rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     printf("Error in service call, check that the ROS node or PLC driver are up and running\n");
   } else {
