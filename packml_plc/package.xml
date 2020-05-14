@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>packml_plc</name>
   <version>0.0.0</version>
   <description>Package to control and monitor a PackML state machine following the standard template in a Siemens PLC with OPCUA tags</description>
-  <maintainer email="dejanira_araiza@artc.a-star.edu.sg">Dejanira Araiza-Illan</maintainer>
+  <maintainer email="chenbn@artc.a-star.edu.sg">Chen Bainian</maintainer>
+  <maintainer email="dejanira.araiza.i@gmail.com">Dejanira Araiza-Illan</maintainer>
   
   <license>Apache 2.0</license>
   <exec_depend>std_msgs</exec_depend>

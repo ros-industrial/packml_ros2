@@ -26,7 +26,7 @@ from setuptools import setup
 package_name = 'packml_plc'
 setup(
     name=package_name,
-    version='0.1.0',
+    version='0.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -35,8 +35,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Dejanira Araiza Illan',
-    maintainer_email='dejanira_araiza@artc.a-star.edu.sg',
+    maintainer='Chen Bainian',
+    maintainer_email='chenbn@artc.a-star.edu.sg',
+    author='Dejanira Araiza Illan',
+    author_email='dejanira.araiza.i@gmail.com',
     keywords=['ROS2'],
     classifiers=[
         'Intended Audience :: Users',
