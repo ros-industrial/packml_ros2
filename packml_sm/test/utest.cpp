@@ -256,6 +256,7 @@ TEST(Packml_sm, testing_init_function)
   char ** names;
   names = new char *[10];
   packml_sm::init(2, names);
+  delete[] names;
 }
 
 TEST(Packml_sm, testing_setResetting)
