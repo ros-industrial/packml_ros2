@@ -2,11 +2,19 @@ image: docker:git
 services:
   - docker:dind
 before_script:
-  - apk add --update bash coreutils tar curl
+  - apk add --update bash coreutils tar curl ccache
   - git clone --quiet --depth 1 https://github.com/ros-industrial/industrial_ci .industrial_ci -b master
+  - mkdir -p /builds/$CI_PROJECT_PATH/shared/.ccache
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths: 
+    - /builds/$CI_PROJECT_PATH/shared/.ccache/
+
+variables:
+  CCACHE_DIR: "/builds/$CI_PROJECT_PATH/shared/.ccache"
 
 dashing-main:
-  script: .industrial_ci/gitlab.sh ROS_DISTRO=dashing ROS_REPO=main
+  script: .industrial_ci/gitlab.sh ROS_DISTRO=dashing ROS_REPO=main AFTER_SCRIPT="ccache -s"
 
 dashing-testing:
   script: .industrial_ci/gitlab.sh ROS_DISTRO=dashing ROS_REPO=testing
@@ -16,4 +24,3 @@ eloquent-main:
 
 eloquent-testing:
   script: .industrial_ci/gitlab.sh ROS_DISTRO=eloquent ROS_REPO=testing
-
