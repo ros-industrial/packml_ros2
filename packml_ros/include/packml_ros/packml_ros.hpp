@@ -338,10 +338,12 @@ public:
         res->t_complete_state = complete_state_t;
       };
     // Create service to control the execution of the SM from RViz GUI
-    trans_server_ = node->create_service<packml_msgs::srv::Transition>("transition",
-        transRequest);
-    status_server_ = node->create_service<packml_msgs::srv::AllStatus>("allStatus",
-        statusRequest);
+    trans_server_ = node->create_service<packml_msgs::srv::Transition>(
+      "transition",
+      transRequest);
+    status_server_ = node->create_service<packml_msgs::srv::AllStatus>(
+      "allStatus",
+      statusRequest);
   }
 
   /**

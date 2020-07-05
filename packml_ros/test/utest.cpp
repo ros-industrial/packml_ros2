@@ -49,8 +49,9 @@ TEST(Packml_ros, test_transRequest_commands)
   trans->command = 1;
   auto result_future = transition_client_->async_send_request(trans);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -60,8 +61,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 6;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -71,8 +73,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 2;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -82,8 +85,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 100;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -93,8 +97,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 101;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -104,8 +109,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 4;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -115,8 +121,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 102;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -126,8 +133,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 7;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -137,8 +145,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 5;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -148,8 +157,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 1;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -159,8 +169,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 6;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -170,8 +181,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 3;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -181,8 +193,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 100;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -192,8 +205,9 @@ TEST(Packml_ros, test_transRequest_commands)
   ASSERT_TRUE(check1 == true);
   trans->command = 105;
   result_future = transition_client_->async_send_request(trans);
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     auto result = result_future.get();
     if (result->success == true) {
@@ -214,8 +228,9 @@ TEST(Packml_ros, test_statusRequest_commands_2)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -234,8 +249,9 @@ TEST(Packml_ros, test_statusRequest_commands_3)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -254,8 +270,9 @@ TEST(Packml_ros, test_statusRequest_commands_4)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -274,8 +291,9 @@ TEST(Packml_ros, test_statusRequest_commands_5)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -294,8 +312,9 @@ TEST(Packml_ros, test_statusRequest_commands_6)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -314,8 +333,9 @@ TEST(Packml_ros, test_statusRequest_commands_7)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -334,8 +354,9 @@ TEST(Packml_ros, test_statusRequest_commands_8)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -354,8 +375,9 @@ TEST(Packml_ros, test_statusRequest_commands_9)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -374,8 +396,9 @@ TEST(Packml_ros, test_statusRequest_commands_10)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -394,8 +417,9 @@ TEST(Packml_ros, test_statusRequest_commands_11)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -414,8 +438,9 @@ TEST(Packml_ros, test_statusRequest_commands_100)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -434,8 +459,9 @@ TEST(Packml_ros, test_statusRequest_commands_101)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -454,8 +480,9 @@ TEST(Packml_ros, test_statusRequest_commands_102)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -474,8 +501,9 @@ TEST(Packml_ros, test_statusRequest_commands_103)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -494,8 +522,9 @@ TEST(Packml_ros, test_statusRequest_commands_104)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -514,8 +543,9 @@ TEST(Packml_ros, test_statusRequest_commands_105)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -534,8 +564,9 @@ TEST(Packml_ros, test_statusRequest_commands_106)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {
@@ -554,8 +585,9 @@ TEST(Packml_ros, test_statusRequest_commands_wrong)
   update->command = true;
   auto result_future = status_client_->async_send_request(update);
   bool check1 = false;
-  if (rclcpp::spin_until_future_complete(node,
-    result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
+  if (rclcpp::spin_until_future_complete(
+      node,
+      result_future) == rclcpp::executor::FutureReturnCode::SUCCESS)
   {
     check1 = true;
   } else {

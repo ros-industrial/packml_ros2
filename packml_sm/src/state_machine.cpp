@@ -229,43 +229,62 @@ StateMachine::StateMachine()
   aborting_ = ActingState::Aborting();
   execute_ = ActingState::Execute(stoppable_);
 
-  connect(abortable_, SIGNAL(
+  connect(
+    abortable_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(stoppable_, SIGNAL(
+  connect(
+    stoppable_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(unholding_, SIGNAL(
+  connect(
+    unholding_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(held_, SIGNAL(
+  connect(
+    held_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(holding_, SIGNAL(
+  connect(
+    holding_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(idle_, SIGNAL(
+  connect(
+    idle_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(starting_, SIGNAL(
+  connect(
+    starting_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(completing_, SIGNAL(
+  connect(
+    completing_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(complete_, SIGNAL(
+  connect(
+    complete_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(resetting_, SIGNAL(
+  connect(
+    resetting_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(unsuspending_, SIGNAL(
+  connect(
+    unsuspending_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(suspended_, SIGNAL(
+  connect(
+    suspended_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(suspending_, SIGNAL(
+  connect(
+    suspending_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(stopped_, SIGNAL(
+  connect(
+    stopped_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(stopping_, SIGNAL(
+  connect(
+    stopping_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(clearing_, SIGNAL(
+  connect(
+    clearing_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(aborted_, SIGNAL(
+  connect(
+    aborted_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(aborting_, SIGNAL(
+  connect(
+    aborting_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
-  connect(execute_, SIGNAL(
+  connect(
+    execute_, SIGNAL(
       stateEntered(int,QString)), this, SLOT(setState(int,QString)));  // NOLINT(whitespace/comma)
   printf("Adding states to state machine\n");
   sm_internal_.addState(abortable_);
@@ -342,27 +361,34 @@ ContinuousCycle::ContinuousCycle()
   CmdTransition::stop(*stoppable_, *stopping_);
   StateCompleteTransition * stopping_stopped = new StateCompleteTransition(*stopping_, *stopped_);
   CmdTransition::reset(*stopped_, *resetting_);
-  StateCompleteTransition * unholding_execute_ = new StateCompleteTransition(*unholding_,
-      *execute_);
+  StateCompleteTransition * unholding_execute_ = new StateCompleteTransition(
+    *unholding_,
+    *execute_);
   CmdTransition::unhold(*held_, *unholding_);
   StateCompleteTransition * holding_held_ = new StateCompleteTransition(*holding_, *held_);
   CmdTransition::start(*idle_, *starting_);
-  StateCompleteTransition * starting_execute_ = new StateCompleteTransition(*starting_,
-      *execute_);
+  StateCompleteTransition * starting_execute_ = new StateCompleteTransition(
+    *starting_,
+    *execute_);
   CmdTransition::hold(*execute_, *holding_);
-  StateCompleteTransition * execute_execute_ = new StateCompleteTransition(*execute_,
-      *execute_);
-  StateCompleteTransition * completing_complete = new StateCompleteTransition(*completing_,
-      *complete_);
+  StateCompleteTransition * execute_execute_ = new StateCompleteTransition(
+    *execute_,
+    *execute_);
+  StateCompleteTransition * completing_complete = new StateCompleteTransition(
+    *completing_,
+    *complete_);
   CmdTransition::reset(*complete_, *resetting_);
   StateCompleteTransition * resetting_idle_ = new StateCompleteTransition(*resetting_, *idle_);
   CmdTransition::suspend(*execute_, *suspending_);
-  StateCompleteTransition * suspending_suspended_ = new StateCompleteTransition(*suspending_,
-      *suspended_);
-  CmdTransition::unsuspend(*suspended_,
+  StateCompleteTransition * suspending_suspended_ = new StateCompleteTransition(
+    *suspending_,
+    *suspended_);
+  CmdTransition::unsuspend(
+    *suspended_,
     *unsuspending_);
-  StateCompleteTransition * unsuspending_execute_ = new StateCompleteTransition(*unsuspending_,
-      *execute_);
+  StateCompleteTransition * unsuspending_execute_ = new StateCompleteTransition(
+    *unsuspending_,
+    *execute_);
   abortable_->setInitialState(clearing_);
   stoppable_->setInitialState(resetting_);
   sm_internal_.setInitialState(aborted_);
@@ -375,36 +401,46 @@ SingleCycle::SingleCycle()
   // Naming <from state>_<to state>
   CmdTransition::abort(*abortable_, *aborting_);
   ErrorTransition * abortable_aborting_on_error = new ErrorTransition(*abortable_, *aborting_);
-  StateCompleteTransition * aborting_aborted = new StateCompleteTransition(*aborting_,
-      *aborted_);
+  StateCompleteTransition * aborting_aborted = new StateCompleteTransition(
+    *aborting_,
+    *aborted_);
   CmdTransition::clear(*aborted_, *clearing_);
-  StateCompleteTransition * clearing_stopped_ = new StateCompleteTransition(*clearing_,
-      *stopped_);
+  StateCompleteTransition * clearing_stopped_ = new StateCompleteTransition(
+    *clearing_,
+    *stopped_);
   CmdTransition::stop(*stoppable_, *stopping_);
-  StateCompleteTransition * stopping_stopped = new StateCompleteTransition(*stopping_,
-      *stopped_);
+  StateCompleteTransition * stopping_stopped = new StateCompleteTransition(
+    *stopping_,
+    *stopped_);
   CmdTransition::reset(*stopped_, *resetting_);
-  StateCompleteTransition * unholding_execute_ = new StateCompleteTransition(*unholding_,
-      *execute_);
+  StateCompleteTransition * unholding_execute_ = new StateCompleteTransition(
+    *unholding_,
+    *execute_);
   CmdTransition::unhold(*held_, *unholding_);
   StateCompleteTransition * holding_held_ = new StateCompleteTransition(*holding_, *held_);
   CmdTransition::start(*idle_, *starting_);
-  StateCompleteTransition * starting_execute_ = new StateCompleteTransition(*starting_,
-      *execute_);
+  StateCompleteTransition * starting_execute_ = new StateCompleteTransition(
+    *starting_,
+    *execute_);
   CmdTransition::hold(*execute_, *holding_);
-  StateCompleteTransition * execute_completing_ = new StateCompleteTransition(*execute_,
-      *completing_);
-  StateCompleteTransition * completing_complete = new StateCompleteTransition(*completing_,
-      *complete_);
+  StateCompleteTransition * execute_completing_ = new StateCompleteTransition(
+    *execute_,
+    *completing_);
+  StateCompleteTransition * completing_complete = new StateCompleteTransition(
+    *completing_,
+    *complete_);
   CmdTransition::reset(*complete_, *resetting_);
   StateCompleteTransition * resetting_idle_ = new StateCompleteTransition(*resetting_, *idle_);
   CmdTransition::suspend(*execute_, *suspending_);
-  StateCompleteTransition * suspending_suspended_ = new StateCompleteTransition(*suspending_,
-      *suspended_);
-  CmdTransition::unsuspend(*suspended_,
+  StateCompleteTransition * suspending_suspended_ = new StateCompleteTransition(
+    *suspending_,
+    *suspended_);
+  CmdTransition::unsuspend(
+    *suspended_,
     *unsuspending_);
-  StateCompleteTransition * unsuspending_execute_ = new StateCompleteTransition(*unsuspending_,
-      *execute_);
+  StateCompleteTransition * unsuspending_execute_ = new StateCompleteTransition(
+    *unsuspending_,
+    *execute_);
   abortable_->setInitialState(clearing_);
   stoppable_->setInitialState(resetting_);
   sm_internal_.setInitialState(aborted_);
