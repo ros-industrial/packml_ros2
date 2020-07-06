@@ -1,0 +1,42 @@
+bool command
+---
+# Wrap around to communicate Widget to PCL
+bool stopped_state
+bool idle_state
+bool starting_state
+bool execute_state
+bool completing_state
+bool complete_state
+bool clearing_state
+bool suspended_state
+bool aborting_state
+bool aborted_state
+bool holding_state
+bool held_state
+bool unholding_state
+bool suspending_state
+bool unsuspending_state
+bool resetting_state
+bool stopping_state
+
+# Timings for all states
+float64 t_stopped_state
+float64 t_idle_state
+float64 t_starting_state
+float64 t_execute_state
+float64 t_completing_state
+float64 t_complete_state
+float64 t_clearing_state
+float64 t_suspended_state
+float64 t_aborting_state
+float64 t_aborted_state
+float64 t_holding_state
+float64 t_held_state
+float64 t_unholding_state
+float64 t_suspending_state
+float64 t_unsuspending_state
+float64 t_resetting_state
+float64 t_stopping_state
+
+
+

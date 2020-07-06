@@ -1,0 +1,13 @@
+# Request a mode change from a packml state machine.
+# The response is returned as soon as the request is accepted, but not necessarily
+# when the mode changes
+
+Mode mode
+
+---
+# State machine response
+bool success         # True if mode has been accepted
+int8 error_code       # Error code if command has been rejected
+int8 SUCCESS = 1
+int8 INVALID_MODE_REQUEST = -1
+string message        # Message for display (only for human reading)

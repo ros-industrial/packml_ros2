@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PackmlPanel</class>
+ <widget class="QWidget" name="PackmlPanel">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>292</width>
+    <height>155</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PackML DEMO </string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;State Control&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+	</layout>
+	</item>
+
+
+<item>
+<layout class="QGridLayout" name="gridLayout">
+	<item row="0" column="0">
+        <widget class="QPushButton" name="reset_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Reset</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="start_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Start</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="stop_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Stop</string>
+         </property>
+        </widget>
+       </item>
+	<item row="0" column="1">
+        <widget class="QPushButton" name="hold_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Hold</string>
+         </property>
+        </widget>
+       </item>
+	<item row="1" column="1">
+        <widget class="QPushButton" name="unhold_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>UnHold</string>
+         </property>
+        </widget>
+       </item>
+	<item row="2" column="1">
+        <widget class="QPushButton" name="suspend_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Suspend</string>
+         </property>
+        </widget>
+       </item>
+	<item row="3" column="1">
+        <widget class="QPushButton" name="unsuspend_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>UnSuspend</string>
+         </property>
+        </widget>
+       </item>
+	<item row="3" column="0">
+        <widget class="QPushButton" name="abort_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Abort</string>
+         </property>
+        </widget>
+       </item>
+	<item row="4" column="0">
+        <widget class="QPushButton" name="clear_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Clear</string>
+         </property>
+        </widget>
+       </item>
+<!--
+	<item row="0" column="2">
+	<widget class="QLabel" name="mode_state">
+         <property name="text">
+          <string>Current mode: ?</string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="2">
+        <widget class="QPushButton" name="mode1_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Mode 1 WORKCELL</string>
+         </property>
+        </widget>
+       </item>
+	<item row="2" column="2">
+        <widget class="QPushButton" name="mode2_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Mode 2 MANUAL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="mode3_button">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="text">
+          <string>Mode 3 CALIBRATION</string>
+         </property>
+        </widget>
+       </item> -->
+      </layout>
+     </item> 
+   
+   <item>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="Line" name="line_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;PLC State Status Display&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="Line" name="line_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+
+
+
+ <item>
+      <widget class="Line" name="line_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+
+
+<item>
+<layout class="QGridLayout" name="gridLayout1">
+	<item row="0" column="0">
+	<widget class="QLabel" name="label_a">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="1">
+	<widget class="QLabel" name="label_c">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="2">
+	<widget class="QLabel" name="unholding_state">
+         <property name="text">
+          <string>Unholding: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="3">
+	<widget class="QLabel" name="label_e">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="4">
+	<widget class="QLabel" name="held_state">
+         <property name="text">
+          <string>Held: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="5">
+	<widget class="QLabel" name="label_g">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="6">
+	<widget class="QLabel" name="holding_state">
+         <property name="text">
+          <string>Holding: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="7">
+	<widget class="QLabel" name="label_h">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="0" column="8">
+	<widget class="QLabel" name="label_i">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+
+
+	<item row="1" column="0">
+	<widget class="QLabel" name="label_j">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="1">
+	<widget class="QLabel" name="label_k">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="2">
+	<widget class="QLabel" name="label_l">
+         <property name="text">
+          <string>---------------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="3">
+	<widget class="QLabel" name="label_m">
+         <property name="text">
+          <string>------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="4">
+	<widget class="QLabel" name="label_n">
+         <property name="text">
+          <string>v       ---------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="5">
+	<widget class="QLabel" name="label_o">
+         <property name="text">
+          <string>-----</string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="6">
+	<widget class="QLabel" name="label_p">
+         <property name="text">
+          <string>^</string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="7">
+	<widget class="QLabel" name="label_q">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="1" column="8">
+	<widget class="QLabel" name="label_r">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+
+	<item row="2" column="0">
+	<widget class="QLabel" name="idle_state">
+         <property name="text">
+          <string>Idle: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="1">
+	<widget class="QLabel" name="label_s">
+         <property name="text">
+          <string>---&gt;</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="2">
+	<widget class="QLabel" name="starting_state">
+         <property name="text">
+          <string>Starting: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="3">
+	<widget class="QLabel" name="label_t">
+         <property name="text">
+          <string>---&gt;</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="4">
+	<widget class="QLabel" name="execute_state">
+         <property name="text">
+          <string>Executing: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="5">
+	<widget class="QLabel" name="label_u">
+         <property name="text">
+          <string>---&gt;</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="6">
+	<widget class="QLabel" name="completing_state">
+         <property name="text">
+          <string>Completing: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="7">
+	<widget class="QLabel" name="label_v">
+         <property name="text">
+          <string>---&gt;</string>
+         </property>
+        </widget>
+	</item>
+	<item row="2" column="8">
+	<widget class="QLabel" name="complete_state">
+         <property name="text">
+          <string>Complete: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+
+	<item row="3" column="0">
+	<widget class="QLabel" name="label_w">
+         <property name="text">
+          <string>^</string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="1">
+	<widget class="QLabel" name="label_x">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="2">
+	<widget class="QLabel" name="label_y">
+         <property name="text">
+          <string>---------------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="3">
+	<widget class="QLabel" name="label_aa">
+         <property name="text">
+          <string>------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="4">
+	<widget class="QLabel" name="label_ab">
+         <property name="text">
+          <string>^      ----------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="5">
+	<widget class="QLabel" name="label_ad">
+         <property name="text">
+          <string>------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="6">
+	<widget class="QLabel" name="label_ae">
+         <property name="text">
+          <string>v</string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="7">
+	<widget class="QLabel" name="label_af">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="3" column="8">
+	<widget class="QLabel" name="label_ag">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+
+
+
+	<item row="4" column="0">
+	<widget class="QLabel" name="resetting_state">
+         <property name="text">
+          <string>Resetting: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="1">
+	<widget class="QLabel" name="label_ak">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="2">
+	<widget class="QLabel" name="unsuspending_state">
+         <property name="text">
+          <string>Unsuspending: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="3">
+	<widget class="QLabel" name="label_am">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="4">
+	<widget class="QLabel" name="suspended_state">
+         <property name="text">
+          <string>Suspended: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="5">
+	<widget class="QLabel" name="label_ao">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="6">
+	<widget class="QLabel" name="suspending_state">
+         <property name="text">
+          <string>Suspending: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="7">
+	<widget class="QLabel" name="label_aq">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="4" column="8">
+	<widget class="QLabel" name="label_ar">
+         <property name="text">
+          <string>|</string>
+         </property>
+        </widget>
+	</item>
+
+
+	<item row="5" column="0">
+	<widget class="QLabel" name="label_at">
+         <property name="text">
+          <string>^-------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="1">
+	<widget class="QLabel" name="label_av">
+         <property name="text">
+          <string>------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="2">
+	<widget class="QLabel" name="label_aw">
+         <property name="text">
+          <string>---------------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="3">
+	<widget class="QLabel" name="label_ay">
+         <property name="text">
+          <string>------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="4">
+	<widget class="QLabel" name="label_az">
+         <property name="text">
+          <string>-----------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="5">
+	<widget class="QLabel" name="label_ba">
+         <property name="text">
+          <string>-----</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="6">
+	<widget class="QLabel" name="label_bd">
+         <property name="text">
+          <string>------------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="7">
+	<widget class="QLabel" name="label_be">
+         <property name="text">
+          <string>-----</string>
+         </property>
+        </widget>
+	</item>
+	<item row="5" column="8">
+	<widget class="QLabel" name="label_bg">
+         <property name="text">
+          <string>-</string>
+         </property>
+        </widget>
+	</item>
+
+
+	<item row="6" column="0">
+	<widget class="QLabel" name="label_bi">
+         <property name="text">
+          <string>|</string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="1">
+	<widget class="QLabel" name="label_bk">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="2">
+	<widget class="QLabel" name="label_bl">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="3">
+	<widget class="QLabel" name="label_bm">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="4">
+	<widget class="QLabel" name="label_bn">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="5">
+	<widget class="QLabel" name="label_bo">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="6">
+	<widget class="QLabel" name="label_bp">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="7">
+	<widget class="QLabel" name="label_bq">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="6" column="8">
+	<widget class="QLabel" name="label_br">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+
+
+	<item row="7" column="0">
+	<widget class="QLabel" name="label_bw">
+         <property name="text">
+          <string>|</string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="1">
+	<widget class="QLabel" name="label_by">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="2">
+	<widget class="QLabel" name="label_bz">
+         <property name="text">
+          <string>v</string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="3">
+	<widget class="QLabel" name="label_cb">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="4">
+	<widget class="QLabel" name="label_cd">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="5">
+	<widget class="QLabel" name="label_ce">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="6">
+	<widget class="QLabel" name="label_cf">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="7">
+	<widget class="QLabel" name="label_cg">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="7" column="8">
+	<widget class="QLabel" name="label_ch">
+         <property name="text">
+          <string>v</string>
+         </property>
+        </widget>
+	</item>
+
+
+	<item row="8" column="0">
+	<widget class="QLabel" name="stopped_state">
+         <property name="text">
+          <string>Stopped: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="1">
+	<widget class="QLabel" name="label_cl">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="2">
+	<widget class="QLabel" name="stopping_state">
+         <property name="text">
+          <string>Stopping: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="3">
+	<widget class="QLabel" name="">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="4">
+	<widget class="QLabel" name="clearing_state">
+         <property name="text">
+          <string>Clearing: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="5">
+	<widget class="QLabel" name="label_cq">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="6">
+	<widget class="QLabel" name="aborted_state">
+         <property name="text">
+          <string>Aborted: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="7">
+	<widget class="QLabel" name="label_ct">
+         <property name="text">
+          <string>&lt;---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="8" column="8">
+	<widget class="QLabel" name="aborting_state">
+         <property name="text">
+          <string>Aborting: 0.0s</string>
+         </property>
+        </widget>
+	</item>
+
+
+	<item row="9" column="0">
+	<widget class="QLabel" name="label_cv">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="1">
+	<widget class="QLabel" name="label_cx">
+         <property name="text">
+          <string>^---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="2">
+	<widget class="QLabel" name="label_cy">
+         <property name="text">
+          <string>---------------------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="3">
+	<widget class="QLabel" name="label_da">
+         <property name="text">
+          <string>------</string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="4">
+	<widget class="QLabel" name="label_db">
+         <property name="text">
+          <string>---</string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="5">
+	<widget class="QLabel" name="label_dd">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="6">
+	<widget class="QLabel" name="label_df">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="7">
+	<widget class="QLabel" name="label_dg">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+	<item row="9" column="8">
+	<widget class="QLabel" name="label_dh">
+         <property name="text">
+          <string></string>
+         </property>
+        </widget>
+	</item>
+
+
+</layout>
+</item>
+
+
+   
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
