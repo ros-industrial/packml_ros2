@@ -1,6 +1,6 @@
 # packml_ros2
-[![Build Status](https://travis-ci.com/Briancbn/packml_ros2.svg?branch=master)](https://travis-ci.com/Briancbn/packml_ros2)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build Status](http://img.shields.io/travis/com/Briancbn/packml_ros2.svg?branch=master&style=flat-square)](https://travis-ci.com/Briancbn/packml_ros2)
+[![License](https://img.shields.io/github/license/Briancbn/packml_ros2.svg?style=flat-square)](https://github.com/Briancbn/packml_ros2)
 
 This package implements a state machine as prescribed in the Packaging Machine Language (PackML) standard in simulation. 
 
