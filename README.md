@@ -1,5 +1,12 @@
 # packml_ros2
-[![Build Status](http://img.shields.io/travis/com/Briancbn/packml_ros2.svg?branch=master&style=flat-square)](https://travis-ci.com/Briancbn/packml_ros2)
+
+[![Gitlab_build](https://img.shields.io/gitlab/pipeline/1487quantum/packml_ros2/master?logo=gitlab&style=flat-square)](https://gitlab.com/1487quantum/packml_ros2/-/pipelines)
+[![Build Status](http://img.shields.io/travis/com/1487quantum/packml_ros2.svg?branch=master&style=flat-square&logo=Travis)](https://travis-ci.com/1487quantum/packml_ros2)
+[![GH_build](https://img.shields.io/github/workflow/status/1487quantum/packml_ros2/GH%20Actions%20CI/master?label=Build&logo=Github&style=flat-square)](https://github.com/1487quantum/packml_ros2/actions/workflows/gh-act.yml)
+
+[![codecov Coverage Status](https://codecov.io/gh/1487quantum/packml_ros2/branch/master/graph/badge.svg)](https://codecov.io/gh/1487quantum/packml_ros2)
+[![Coverage Status](https://coveralls.io/repos/github/1487quantum/packml_ros2/badge.svg?branch=HEAD)](https://coveralls.io/github/1487quantum/packml_ros2?branch=HEAD)
+
 [![License](https://img.shields.io/github/license/Briancbn/packml_ros2.svg?style=flat-square)](https://github.com/Briancbn/packml_ros2)
 
 This package implements a state machine as prescribed in the Packaging Machine Language (PackML) standard in simulation. 
@@ -18,20 +25,20 @@ Extras:
 * `packml_plc`: Example of a driver in Python to interface with a PackML state machine implemented in a Siemens PLC (with pre-configured OPCUA variable tags according to the PLCs configuration). Direct communication with the RViz2 plugin (receive states and send events to trigger transitions). 
 
 ## Pre-requisites
-* Ubuntu 18.04
-* ROS 2 [Dashing](https://index.ros.org/doc/ros2/Installation/Dashing/) or [Eloquent](https://index.ros.org/doc/ros2/Installation/Eloquent/)
+* Ubuntu 20.04
+* ROS 2 [Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
 
 
 ## Build from source
 * Source your ROS environment
 
-      . /opt/ros/eloquent/setup.bash
+      . /opt/ros/foxy/setup.bash
 
 * Setup workspace and install dependencies
 
       mkdir -p ~/colcon_ws/src
       cd ~/colcon_ws/src
-      git clone https://github.com/Briancbn/packml_ros2.git
+      git clone https://github.com/1487quantum/packml_ros2.git
       cd ../
       rosdep install --from-paths src --ignore-src -y --rosdistro $ROS_DISTRO
 
@@ -72,5 +79,3 @@ Extras:
 * Dejanira Araiza Illan
 * Chen Bainian
 * Derrick Ang Ming Yan
-
-
