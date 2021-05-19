@@ -1,7 +1,4 @@
-# This config uses industrial_ci (https://github.com/ros-industrial/industrial_ci.git).
-# For troubleshooting, see readme (https://github.com/ros-industrial/industrial_ci/blob/master/README.rst)
-
-name: GH Actions CI
+name: GH-Actions-CI
 
 # This determines when this workflow is run
 on: [push, pull_request] # on all pushes and PRs
@@ -11,17 +8,12 @@ jobs:
     strategy:
       matrix:
         env:
-#       - {ROS_DISTRO: eloquent, ROS_REPO: testing}
-#       - {ROS_DISTRO: eloquent, ROS_REPO: main}
-          - {
-            ROS_DISTRO: foxy,
-            ROS_REPO: testing,
-            CMAKE_ARGS: "-DCMAKE_C_FLAGS='--coverage' -DCMAKE_CXX_FLAGS='--coverage'",
-            }
-          - {ROS_DISTRO: foxy, ROS_REPO: main}
+           - {ROS_DISTRO: foxy, ROS_REPO: testing}
+           - {ROS_DISTRO: foxy, ROS_REPO: main}
     env:
       CCACHE_DIR: /github/home/.ccache # Directory for ccache (and how we enable ccache in industrial_ci)
       CODE_COVERAGE: codecov.io
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +23,8 @@ jobs:
           path: ${{ env.CCACHE_DIR }}
           key: ccache-${{ matrix.env.ROS_DISTRO }}-${{ matrix.env.ROS_REPO }}
       # Run industrial_ci
-      - uses: 'ros-industrial/industrial_ci@master'          
+      #- uses: 'ros-industrial/industrial_ci@master'
+      - uses: 'Briancbn/industrial_ci@pr-coverage-rebased'                    
         env: ${{ matrix.env }}
       # Upload report
       - name: Codecov report upload
