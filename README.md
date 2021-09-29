@@ -1,13 +1,8 @@
 # packml_ros2
 
-[![Gitlab_build](https://img.shields.io/gitlab/pipeline/1487quantum/packml_ros2/master?logo=gitlab&style=flat-square)](https://gitlab.com/1487quantum/packml_ros2/-/pipelines)
-[![Build Status](http://img.shields.io/travis/com/1487quantum/packml_ros2.svg?branch=master&style=flat-square&logo=Travis)](https://travis-ci.com/1487quantum/packml_ros2)
-[![GH_build](https://img.shields.io/github/workflow/status/1487quantum/packml_ros2/GH%20Actions%20CI/master?label=Build&logo=Github&style=flat-square)](https://github.com/1487quantum/packml_ros2/actions/workflows/gh-act.yml)
-
-[![codecov Coverage Status](https://codecov.io/gh/1487quantum/packml_ros2/branch/master/graph/badge.svg)](https://codecov.io/gh/1487quantum/packml_ros2)
-[![Coverage Status](https://coveralls.io/repos/github/1487quantum/packml_ros2/badge.svg?branch=HEAD)](https://coveralls.io/github/1487quantum/packml_ros2?branch=HEAD)
-
-[![License](https://img.shields.io/github/license/Briancbn/packml_ros2.svg?style=flat-square)](https://github.com/Briancbn/packml_ros2)
+[![GH_build](https://img.shields.io/github/workflow/status/ros-industrial/packml_ros2/GH-Actions-CI/master?label=Build&logo=Github&style=flat-square)](https://github.com/ros-industrial/packml_ros2/actions/workflows/gh-act.yml)
+[![codecov Coverage Status](https://codecov.io/gh/ros-industrial/packml_ros2/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ros-industrial/packml_ros2/branch/master)
+[![License](https://img.shields.io/github/license/ros-industrial/packml_ros2.svg?style=flat-square)](https://github.com/ros-industrial/packml_ros2)
 
 This package implements a state machine as prescribed in the Packaging Machine Language (PackML) standard in simulation. 
 
