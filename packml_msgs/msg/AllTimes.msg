@@ -1,0 +1,19 @@
+#Timings for all states
+
+float64 stopped_state
+float64 idle_state
+float64 starting_state
+float64 execute_state
+float64 completing_state
+float64 complete_state
+float64 clearing_state
+float64 suspended_state
+float64 aborting_state
+float64 aborted_state
+float64 holding_state
+float64 held_state
+float64 unholding_state
+float64 suspending_state
+float64 unsuspending_state
+float64 resetting_state
+float64 stopping_state
